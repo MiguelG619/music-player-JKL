@@ -6,13 +6,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main-style.css">
 	<link rel="stylesheet" href="css/navbar-style.css">
 	<link rel="stylesheet" href="css/profile-navbar-style.css">
-	<link rel="stylesheet" href="css/profile-edit-style.css">
-	<link rel="stylesheet" href="css/profile-contact-style.css">
+	<link rel="stylesheet" href="css/profile-info-style.css">
 	<link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel="stylesheet">
-	<title>JKL | Edit Info</title>
+	<title>JKL | Personal Info</title>
 </head>
 <body>
 
@@ -21,14 +20,14 @@
 		<div id="nav" class="sticky-nav">
 			<nav class="navbar navbar-expand-lg navbar-dark onyx">
 				<div class="container-fluid">
-				  	<div class="navbar-brand fw-bold" href="#">JKL</div>
+				  	<div class="navbar-brand fw-bold" href="home-tracks.html">JKL</div>
 				  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				    <span class="navbar-toggler-icon"><!-- --></span>
 				    </button>
 				    <div class=" top-navbar collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
 				      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
 				        <li class="nav-item">
-				          <a class="nav-link home" aria-current="page" href="index.html">Home</a>
+				          <a class="nav-link home" aria-current="page" href="home-tracks.html">Home</a>
 				        </li>
 				        <form class="d-flex search-bar">
 				        <input class="form-control me-2 lightgrey" type="search" maxlength="20" placeholder="Search for music" aria-label="Search">
@@ -41,7 +40,7 @@
 				      		<img src="images/dp.jpg" width="30" alt="" class="profile-icon img-fluid">
 				      	</li>
 				        <li class="nav-item ">
-				          <a class="nav-link active red-orange rounded-pill" href="profile.html">Profile</a>
+				          <a class="nav-link active red-orange rounded-pill" href="track.html">Profile</a>
 				        </li>
 				        <li class="nav-item">
 				          <a class="nav-link" href="log-out.html">Log-out</a>
@@ -67,16 +66,16 @@
 				    <div class="profile-navbar collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
 				      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
 				        <li class="nav-item ">
-				          <a class="nav-link active profile-navbar-links" aria-current="page" href="index.html">Tracks</a>
+				          <a class="nav-link active profile-navbar-links" aria-current="page" href="profile-tracks.html">Tracks</a>
 				        </li>
 				        <li class="nav-item">
-				          <a class="nav-link profile-navbar-links" href="playlist.html">Playlist</a>
+				          <a class="nav-link profile-navbar-links" href="profile-playlists.html">Playlist</a>
 				        </li>
 				        <li class="nav-item">
-				          <a class="nav-link profile-navbar-links red-orange rounded-pill"  href="info.html">Info</a>
+				          <a class="nav-link profile-navbar-links red-orange rounded-pill"  href="profile-info.html">Info</a>
 				        </li>
 				        <li class="nav-item">
-				          <a class="nav-link profile-navbar-links"  href="upload.html">Upload</a>
+				          <a class="nav-link profile-navbar-links"  href="profile-upload.html">Upload</a>
 				        </li>
 				      </ul>
 				      
@@ -92,48 +91,41 @@
 	<div class="container-fluid gainsboro ">
   		<div class="row vh-100 ">
 
-  			<!-- Upload -->
+  			<!-- Info -->
   			<div class="col-md-9 ">
-  				<div class="card upload-card">
-				  <div class="card-header upload-track-text red-orange">
-				    <i class="fas fa-user-edit"></i> Edit personal information
-				  </div>
-				  <div class="card-body">
-				  	<form>
-					  <div class="col-md-3 mb-3">
-					    <label for="titleTrack" class="form-label">Username</label>
-					    <input type="text" maxlength="20" class="form-control" id="username-edit">
-					  </div>
-					  <div class="col-md-11 mb-3">
-					    <label for="description-label-edited" class="form-label">Description</label>
-					    <textarea class="form-control" id="description-profile-edit" rows="3" maxlength="425"></textarea>
-					  </div>
-					  <div class="col-md-3 mb-3">
-					    <label for="birthdate-label-edited" class="form-label">Birthdate</label>
-					    <input type="date" class="form-control" id="birthdate-profile-edit">
-					  </div>
-					  <div class="col-md-4 mb-3">
-					    <label for="location-label-edited" class="form-label">Location</label>
-					    <input type="text" maxlength="35" class="form-control" id="location-edit">
-					  </div>
-					</form>
-				   
-				    <button type="submit" class="btn ocean-blue my-2 px-5">Submit</button>
+  				<div class="card profile-card mt-5 mb-3" style="max-width: 800px;">
+				  <div class="row g-0">
+				    <div class="col-md-4 ">
+				      <img src="images/dp.jpg" alt="Picture of a girl" class="profile-picture img-fluid">
+				    </div>
+				    <div class="col-md-8">
+				      <div class="card-body">
+				        <p class="card-title onyx font-white fs-3">JohnyyDoee</p>
+				        <p class="card-text text-break mt-3">I like to listen to music. I'm shy but that doesn't stop me from singing. A singer and songwriter is what I want to do for the rest of my life.</p>
+				        <p class="birthdate"><i class="fal fa-birthday-cake"></i> June 14, 1999</p>
+				        <p class="location"><i class="fal fa-thumbtack"></i> New York, Cubao Philippines</p>
+				        <p class="join-date"><i class="fal fa-calendar-day"></i> April 5, 2021</p>
+				        <div class="edit-delete-account d-flex justify-content-between align-items-end">
+				        	<a class="btn edit-info ocean-blue" href="edit.html">Edit</a>
+				        	<button class="btn delete-account red-orange">Delete</button>
+				        </div>
+				        
+				      </div>
+				    </div>
 				  </div>
 				</div>
   			</div>
 
-  			<!-- End Upload -->
 
   			<!-- Details -->
   			<div class="col-md-3 border-color d-flex flex-column align-items-center bg-details ">
 				<div class="card text-dark bg-light mb-3 my-5 pb-5 contact-details " style="max-width: 18rem;">
-				  <div class="card-header num-tracks"><h3>Tracks: 1</h3></div>
-				  <div class="card-body description-links">
-				    <h5 class="card-title  py-3"><i class="fas fa-globe-asia"></i><a href="">JohnDoe.com</a></h5>
-				    <h5 class="card-title  py-3"><i class="fab fa-youtube-square"></i><a href="#">ItsYourJo</a></h5>
-				    <h5 class="card-title  py-3"><i class="fab fa-twitter-square"></i><a href="#">@johnDough00</a></h5>
-				    <h5 class="card-title  py-3"><i class="fab fa-instagram-square"></i><a href="#">@JonyDonu</a></h5>
+				  <div class="card-header num-tracks ocean-blue"><h3>Tracks: 1</h3></div>
+				  <div class="card-body">
+				    <h5 class="card-title  py-3"><i class="fas fa-globe-asia"></i> JohnDoe.com</h5>
+				    <h5 class="card-title  py-3"><i class="fab fa-youtube-square"></i> ItsYourJoe</h5>
+				    <h5 class="card-title  py-3"><i class="fab fa-twitter-square"></i> @johnDough007</h5>
+				    <h5 class="card-title  py-3"><i class="fab fa-instagram-square"></i> @JonyDonut</h5>
 				  </div>
 				</div>
   			</div>
