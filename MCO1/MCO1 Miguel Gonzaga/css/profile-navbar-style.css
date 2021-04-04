@@ -1,0 +1,8 @@
+/*Profile navbar*/
+
+.profile-navbar-links {
+	border-right: 1px solid grey;
+	color: black !important;
+	padding-left: 138px !important;
+	padding-right: 139px !important; 
+}

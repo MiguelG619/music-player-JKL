@@ -1,0 +1,59 @@
+/*Music Player*/
+a:hover, .search-button:hover {
+	background-color: #f15025;
+	border-radius: 15px;
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+	height: 2px;
+	margin: 0 15px;
+	outline: none;
+	width: 50%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: #f15025;
+	border-radius: 50%;
+	cursor: pointer;
+	height: 20px;
+	width: 20px;
+}
+
+
+
+/*Navigation Bar*/
+.top-navbar {
+	color: lightgrey;
+	font-weight: 500;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+
+.search-button {
+	border-color: #f15025;
+	color: #2D82B7 !important;
+}
+
+.home {
+	color: lightgrey !important;
+}
+
+.navbar-brand {
+	color: #f15025 !important;
+	font-size: 25px;
+}
+
+/*Search bar in navigation*/
+.search-button {
+	color: #f15025 !important;
+}
+
+.search-bar {
+	width: 500px;
+}
+
+.profile-icon {
+	border-radius: 20px
+}

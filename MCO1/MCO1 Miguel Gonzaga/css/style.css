@@ -9,29 +9,7 @@ html, body {
 	overflow: hidden;
 }
 
-a:hover, .search-button:hover {
-	background-color: #f15025;
-	border-radius: 15px;
-}
-
-input[type="range"] {
-	-webkit-appearance: none;
-	height: 2px;
-	margin: 0 15px;
-	outline: none;
-	width: 50%;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	background: #f15025;
-	border-radius: 50%;
-	cursor: pointer;
-	height: 20px;
-	width: 20px;
-}
-
-/*colors*/
+/*background colors*/
 
 .onyx  {
 	background-color: #313638;
@@ -45,12 +23,11 @@ input[type="range"]::-webkit-slider-thumb {
 	background-color: #cdcbd7;
 }
 
+/*font colors*/
 .font-white {
 	color: white;
 	padding: 8px 8px;
 }
-
-
 
 .font-lightgrey {
 	color: #cdcbd7;
@@ -65,172 +42,10 @@ input[type="range"]::-webkit-slider-thumb {
 	background-color: #F15025;
 }
 
-/*Navigation Bar*/
-.top-navbar {
-	color: lightgrey;
-	font-weight: 500;
-	padding-left: 10px !important;
-	padding-right: 10px !important;
-}
 
-.search-button {
-	border-color: #f15025;
-	color: #2D82B7 !important;
-}
-
-.home {
-	color: lightgrey !important;
-}
-
-.navbar-brand {
-	color: #f15025 !important;
-	font-size: 25px;
-}
-
-/*Search bar in navigation*/
-.search-button {
-	color: #f15025 !important;
-}
-
-.search-bar {
-	width: 500px;
-}
-
-/*Music Player*/
-.my-col {
-	border: 1px solid grey;
-}
-
-
-.track-image {
-	background-image: url('../images/song.png');
-	background-repeat: no-repeat;
-	background-size: contain;
-	height: 350px;
-	margin: 20px;
-	width: 350px;
-}
-
-.border-color {
-	border-left: 3px solid grey;
-}
-
-.track-background {
-	height: 480px;
-	width: 480px;
-}
-
-.track-img {
-	border-radius: 15px;
-	box-shadow: 1px 0 20px 12px rgba(0,0,0,0.7);
-}
-
-.volume {
-	align-items: center;
-	bottom: 10%;
-	color: #fff;
-	display: flex;
-	height: 30px;
-	left: 20px;
-	width: 100%;
-}
-
-.volume i {
-	background: #f15025;
-	border-radius: 10px;
-	cursor: pointer;
-	padding: 8px 12px;
-}
-
-.volume i:hover {
-	background: rgba(245, 245, 245, 0.1);
-} 
-
-.volume .volume-show { 
-	background: rgb(105,105,105);
-	border-radius: 10px;
-	margin: 0 5px 0 0;
-	padding: 5px 10px;
- }
-
-#play {
- 	background: rgba(0, 0, 0, 0.1);
- 	border-radius: 50%;
- 	border: none;
- 	cursor: pointer;
- 	height: 50px;
- 	margin: 20px 10px 0 0; 
- 	outline: none;
- 	transform: translateX(-70%);
- 	transition: 0.5s;
- 	width: 50px;
- }
-
- .duration {
- 	bottom: 20%;
- 	height: 20px;
- 	left: 50%;
- 	margin-top: 10px;
- 	transform: translateX(20.5%);
- 	width: 100%;
- }
-
- #play, .track-functions > button {
- 	background: #f15025;
- }
-
-.left-track-functions {
-	border-radius: 10px;
-	transform: translateX(-415%);
-}
-
-/*right side description*/
-.num-likes, .num-listens, .description-tags  {
-	color: #2D82B7;
-	font-weight: bold;
-	margin-top: 15px;
-}
-
-.description-tags {
-	font-style: italic;
-}
-
-/*Profile*/
-
-.profile-navbar-links {
-	border-right: 1px solid grey;
-	color: black !important;
-	padding-left: 138px !important;
-	padding-right: 139px !important; 
-}
-
-/*Upload*/
-.upload-card {
-	margin-top: 10px;
-}
-
-.upload-track-text {
-	font-size: 50px;
-	font-weight:bold;
-}
-
-/*Contact Details*/
-.num-tracks {
-	background-color: #2D82B7;
-	border-radius: 15px;
-	padding: 5px;
-}
-
-.description-links a {
-	color: black;
-	text-decoration: none;
-}
 
 /*Profile Info*/
 .edit-info , .delete-account{
 	background-color: lightgrey;
 }
 
-.profile-icon {
-	border-radius: 20px
-}
