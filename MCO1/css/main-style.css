@@ -1,0 +1,50 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    height: 100%;
+    width: 100%;
+    --onyx: #313638ff;
+    --gainsboro: #e3dedeff;
+    --red-orange-color-wheel: #f15025ff;
+    --green-blue-crayola: #2d82b7ff;
+    --phlox: #d63af9ff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Questrial', Arial, Helvetica, sans-serif;
+}
+
+
+/*background colors*/
+
+.onyx  {
+    background-color: #313638;
+}
+
+.gainsboro {
+    background-color: #E3DEDE;
+}
+
+.lightgrey {
+    background-color: #cdcbd7;
+}
+
+/*font colors*/
+.font-white {
+    color: white;
+    padding: 8px 8px;
+}
+
+.font-lightgrey {
+    color: #cdcbd7;
+    padding: 8px 8px;
+}
+
+.ocean-blue {
+    background-color: #2D82B7;
+}
+
+.red-orange {
+    background-color: #F15025;
+}
