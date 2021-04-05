@@ -1,0 +1,49 @@
+
+/*Image Specs*/
+#image_one, #image_two{
+	margin-top: 35px; 
+	margin-left: 10px;
+	width: 230px;
+	height: 160px;
+}
+
+
+#image_three,#image_four{
+	margin-top: 25px; 
+	margin-left: 10px;
+	width:230px; 
+	height: 160px;
+}
+
+#image_five{
+	margin-top: 15px;
+	margin-left: 10px; 
+	width:230px;
+	 height:160px;
+}
+
+#image_six, #image_seven{
+	margin-top: 25px;
+	margin-left: 10px;
+	width:230px;
+	 height:175px;
+}
+
+#image_eight, #image_nine,#image_ten,#image_eleven {
+	margin-top: 20px;
+	margin-left: 10px;
+	width:230px; 
+	height: 175px;
+}
+
+.profile-track-edit-button, .profile-track-delete-button, .profile-playlist-play-button, .profile-playlist-remove-button, .liked-track-play-button, .unlike-track-button{
+	font-size:18px; 
+	border-radius: 50px 50px;
+}
+
+.profile-track-play-button, .profile-playlist-play-button, .liked-track-play-button{
+	
+	font-size:18px; 
+	border-radius: 50px 50px;
+	background-color: #F15025;
+}
