@@ -1,4 +1,10 @@
 /*Navigation Bar*/
+
+a:hover, .search-button:hover {
+    background-color: #f15025;
+    border-radius: 15px;
+}
+
 .top-navbar {
 	color: lightgrey;
 	font-weight: 500;
@@ -32,3 +38,4 @@
 .profile-icon {
 	border-radius: 20px
 }
+

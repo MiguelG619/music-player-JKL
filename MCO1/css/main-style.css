@@ -15,6 +15,10 @@ body {
     font-family: 'Questrial', Arial, Helvetica, sans-serif;
 }
 
+a:hover, .search-button:hover {
+    background-color: #f15025;
+    border-radius: 15px;
+}
 
 /*background colors*/
 

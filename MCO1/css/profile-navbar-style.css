@@ -1,8 +1,13 @@
 /*Profile navbar*/
 
+a:hover, .search-button:hover {
+    background-color: #f15025;
+    border-radius: 15px;
+}
+
 .profile-navbar-links {
 	border-right: 1px solid grey;
 	color: black !important;
-	padding-left: 138px !important;
-	padding-right: 139px !important; 
+	padding-left: 50px !important;
+	padding-right: 50px !important; 
 }
