@@ -218,18 +218,6 @@ input[type="range"]::-webkit-slider-thumb {
 	font-weight:bold;
 }
 
-/*Contact Details*/
-.num-tracks {
-	background-color: #2D82B7;
-	border-radius: 15px;
-	padding: 5px;
-}
-
-.description-links a {
-	color: black;
-	text-decoration: none;
-}
-
 /*Profile Info*/
 .edit-info , .delete-account{
 	background-color: lightgrey;
@@ -340,4 +328,21 @@ input[type="range"]::-webkit-slider-thumb {
 	font-size:18px; 
 	border-radius: 50px 50px;
 	background-color: #F15025;
+}
+
+
+/*contact details*/
+.num-tracks {
+	background-color: #2D82B7;
+	border-radius: 15px;
+	padding: 5px;
+}
+
+.description-links a {
+	color: black;
+	text-decoration: none;
+}
+
+.contact-details {
+	margin-top: 30px;
 }
