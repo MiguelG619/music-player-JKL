@@ -1,0 +1,293 @@
+/*Basic/General Styles*/
+
+html, body {
+	/*typography*/
+	box-sizing: boder-box;
+	font-family: 'Questrial', Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	overflow: hidden;
+}
+
+
+a:hover, .search-button:hover {
+	background-color: #f15025;
+	border-radius: 15px;
+}
+
+
+input[type="range"] {
+	-webkit-appearance: none;
+	width: 50%;
+	outline: none;
+	height: 2px;
+	margin: 0 15px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 20px;
+	width: 20px;
+	background: #f15025;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+/*bg-colors*/
+
+.onyx  {
+	background-color: #313638;
+}
+
+.gainsboro {
+	background-color: #E3DEDE;
+	margin-left: 50px;
+	max-width: 50%;
+	max-height: 850px;
+	margin-top: 50px;
+	overflow-y: scroll;
+}
+
+.lightgrey {
+	background-color: #cdcbd7;
+}
+
+.font-white {
+	color: white;
+	padding: 8px 8px;
+}
+
+.font-lightgrey {
+	color: #cdcbd7;
+	padding: 8px 8px;
+}
+
+.ocean-blue {
+	background-color: #2D82B7;
+}
+
+/*Navigation Bar*/
+.top-navbar {
+	color: lightgrey;
+	font-weight: 500;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+
+.search-button {
+	border-color: #f15025;
+	color: #2D82B7 !important;
+}
+
+.home {
+	color: lightgrey !important;
+}
+
+.navbar-brand {
+	color: #f15025 !important;
+	font-size: 25px;
+}
+
+/*Search bar in navigation*/
+.search-button {
+	color: #f15025 !important;
+}
+
+.search-bar {
+	width: 500px;
+}
+
+/*Music Player*/
+.my-col {
+	border: 1px solid grey;
+}
+
+
+.track-image {
+	margin: 20px;
+	width: 350px;
+	height: 350px;
+	background-image: url('../images/song.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bord {
+	border: 5px solid gold;
+}
+
+.track-background {
+	height: 480px;
+	width: 480px;
+}
+
+.track-img {
+	border-radius: 15px;
+	box-shadow: 1px 0 20px 12px rgba(0,0,0,0.7);
+}
+
+
+.volume {
+	bottom: 10%;
+	left: 20px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 30px;
+	color: #fff;
+}
+
+.volume i {
+	cursor: pointer;
+	padding: 8px 12px;
+	background: #f15025;
+	border-radius: 10px;
+}
+
+.volume i:hover {
+	background: rgba(245, 245, 245, 0.1);
+} 
+
+.volume .volume-show { 
+	padding: 5px 10px;
+	margin: 0 5px 0 0;
+	background: rgb(105,105,105);
+	border-radius: 10px;
+ }
+
+#play {
+ 	border: none;
+ 	margin: 20px 10px 0 0; 
+ 	height: 50px;
+ 	width: 50px;
+ 	border-radius: 50%;
+ 	cursor: pointer;
+ 	outline: none;
+ 	transition: 0.5s;
+ 	background: rgba(0, 0, 0, 0.1);
+ 	transform: translateX(-70%);
+ }
+
+ .duration {
+ 	bottom: 20%;
+ 	left: 50%;
+ 	transform: translateX(20.5%);
+ 	width: 100%;
+ 	height: 20px;
+ 	margin-top: 10px;
+ }
+
+ #play, .track-functions > button {
+ 	background: #f15025;
+ }
+
+.left-track-functions {
+	border-radius: 10px;
+	transform: translateX(-415%);
+}
+
+
+/*right side description*/
+.num-likes, .num-listens {
+	margin: 10px;
+	color: #2D82B7;
+	font-weight: bold;
+}
+
+.description-tags {
+	font-style: italic;
+}
+
+/*Profile*/
+
+.profile-navbar-links {
+	padding-left: 120px !important;
+	padding-right: 120px !important; 
+	border-right: 1px solid grey;
+	border-left: 1px solid grey;
+	color: black !important;
+}
+
+/*Upload*/
+.upload-card {
+	margin-top: 10px;
+}
+
+.upload-track-text {
+	font-size: 50px;
+	font-weight:bold;
+}
+
+/*Contact Details*/
+.num-tracks {
+	background-color: #2D82B7;
+	border-radius: 15px;
+	padding: 5px;
+}
+
+.description-links a {
+	color: black;
+	text-decoration: none;
+}
+
+/*Profile Info*/
+.edit-info , .delete-account{
+	background-color: lightgrey;
+}
+
+.profile-icon {
+	border-radius: 20px
+}
+
+.red-orange{
+	background-color: #F15025;
+}
+
+/*Image Specs*/
+#image_one, #image_two{
+	margin-top: 35px; 
+	margin-left: 10px;
+	width: 230px;
+	height: 160px;
+}
+
+
+#image_three,#image_four{
+	margin-top: 25px; 
+	margin-left: 10px;
+	width:230px; 
+	height: 160px;
+}
+
+#image_five{
+	margin-top: 15px;
+	margin-left: 10px; 
+	width:230px;
+	 height:160px;
+}
+
+#image_six, #image_seven{
+	margin-top: 25px;
+	margin-left: 10px;
+	width:230px;
+	 height:175px;
+}
+
+#image_eight, #image_nine,#image_ten,#image_eleven {
+	margin-top: 20px;
+	margin-left: 10px;
+	width:230px; 
+	height: 175px;
+}
+
+.profile-track-edit-button, .profile-track-delete-button, .profile-playlist-play-button, .profile-playlist-remove-button, .liked-track-play-button, .unlike-track-button{
+	font-size:18px; 
+	border-radius: 50px 50px;
+}
+
+.profile-track-play-button, .profile-playlist-play-button, .liked-track-play-button{
+	
+	font-size:18px; 
+	border-radius: 50px 50px;
+	background-color: #F15025;
+}
