@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/navbar-style.css">
+	<link rel="stylesheet" href="css/music-player-style.css">
+	<link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel="stylesheet">
+	<title>JKL | Music Player</title>
+</head>
+<body>
+
+	<!-- Navigation Bar -->
+	<div class="header-background">
+		<div id="nav" class="sticky-nav">
+			<nav class="navbar navbar-expand-lg navbar-dark onyx">
+				<div class="container-fluid">
+				  	<div class="navbar-brand fw-bold" href="home-tracks.html">JKL</div>
+				  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"><!-- --></span>
+				    </button>
+				    <div class=" top-navbar collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+				      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+				        <li class="nav-item">
+				          <a class="nav-link home" aria-current="page" href="home-tracks.html">Home</a>
+				        </li>
+				        <form class="d-flex search-bar">
+				        <input class="form-control me-2 lightgrey" type="search" maxlength="20" placeholder="Search for music" aria-label="Search">
+				        <button class="btn btn-light btn-outline-success lightgrey search-button" type="submit">Search</button>
+				      	</form>
+				      </ul>
+
+				      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+				      	<li class="nav-item">
+				      		<img src="images/dp.jpg" width="30" alt="" class="profile-icon img-fluid">
+				      	</li>
+				        <li class="nav-item ">
+				          <a class="nav-link active" href="profile-tracks.html">Profile</a>
+				        </li>
+				        <li class="nav-item">
+				          <a class="nav-link" href="login.html">Log-out</a>
+				        </li>
+				      </ul>
+				      
+				    </div>
+				  </div>
+			</nav>
+
+		</div>
+	</div>
+	<!-- End Navigation Bar -->
+
+	<!-- Track Content -->
+	<div class="container-fluid gainsboro ">
+  		<div class="row vh-100 ">
+
+    		<div class="col-md-9 d-flex flex-column align-items-center ">
+    			<div class="card onyx track-img" style="width: 28rem;">
+				  <img src="images/song.png" class="card-img-top" alt="I can't stop me by Twice">
+
+				  <div class="card-body d-flex flex-column align-items-center">
+
+				    <div class="volume">
+				    	<div class="volume-show">90</div>
+				    	<i class="fa fa-volume-up" aria-hidden="true" id="volume-icon" onclick="mute_sound()"></i>
+				    	<input type="range" min="0" max="100" value="90" id="duration-slider" onchange="volume_change()">
+				    </div>
+
+				    <div class="duration">
+				    	<input type="range" min="0" max="100" value="0" id="duration-slider" onchange="change_duration()">
+				    </div>
+
+				    <div class="track-functions">
+				    	<button onclick="like()" class="left-track-functions" id="playlist"><i class="fas fa-list-music" aria-hidden="true"></i>
+				    	</button>
+				    	<button onclick="justplay()" class="left-track-functions" id="like"><i class="fas fa-thumbs-up" aria-hidden="true"></i>
+				    	</button>
+				    	<button onclick="add_playlist()" id="play">
+				    		<i class="fas fa-play" aria-hidden="true"></i>
+				    	</button>
+				    </div>
+				   </div>
+				</div>
+			</div>
+
+			<!-- Track Info -->
+    		<div class="col-6 col-md-3 my-col">
+    		<h2 class="track-title bg-dark font-lightgrey">I can't stop me</h2>
+    		<h3 class="track-artist bg-dark font-lightgrey"><q>Twice</q></h3>
+    		<h5 class="track-description">
+    			"I Can't Stop Me" (stylized as I CAN'T STOP ME) is the title track of Twice's 2nd full album "Eyes wide open". The title track and music video was released on October 26, 2020. <br> <br>
+				The song expresses the difficulties of control oneself while conflicting over good and evil. <br> <br>
+				by twice.fandom.com
+    		</h5>
+    		<h4 class="num-likes"><i class="fal fa-thumbs-up"></i> 123</h4>
+    		<h4 class="num-listens"><i class="far fa-ear"></i> 999</h4>
+    		<div class="description-tags">
+    			<span><i class="fal fa-tags"></i>:</span>
+    			<span class="tags">kpop</span>
+    		</div>
+    		
+
+ 		</div>
+ 	</div>
+
+</body>
+</html>

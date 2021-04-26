@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/main-style.css">
+	<link rel="stylesheet" href="css/navbar-style.css">
+	<link rel="stylesheet" href="css/profile-navbar-style.css">
+	<link rel="stylesheet" href="css/profile-contact-style.css">
+	<link rel="stylesheet" href="css/profile-tracks-playlists-style.css">
+	<link href="https://kit-pro.fontawesome.com/releases/v5.15.3/css/pro.min.css" rel="stylesheet">
+	<title>Play Track</title>
+</head>
+<body>
+
+	<!-- Navigation Bar -->
+	<div class="header-background">
+		<div id="nav" class="sticky-nav">
+			<nav class="navbar navbar-expand-lg navbar-dark onyx">
+				<div class="container-fluid">
+				  	<div class="navbar-brand fw-bold" href="home-tracks.html">JKL</div>
+				  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"><!-- --></span>
+				    </button>
+				    <div class=" top-navbar collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+				      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+				        <li class="nav-item">
+				          <a class="nav-link home" aria-current="page" href="home-tracks.html">Home</a>
+				        </li>
+				        <form class="d-flex search-bar">
+				        <input class="form-control me-2 lightgrey" type="search" maxlength="20" placeholder="Search for music" aria-label="Search">
+				        <button class="btn btn-light btn-outline-success lightgrey search-button" type="submit">Search</button>
+				      	</form>
+				      </ul>
+
+				      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+				      	<li class="nav-item">
+				      		<img src="images/dp.jpg" width="30" alt="" class="profile-icon img-fluid">
+				      	</li>
+				        <li class="nav-item red-orange rounded-pill">
+				          <a class="nav-link active" href="profile-tracks.html">Profile</a>
+				        </li>
+				         <li class="nav-item ">
+				          <a class="nav-link" href="upload.html">Upload</a>
+				        </li>
+				        <li class="nav-item">
+				          <a class="nav-link" href="login.html">Log-out</a>
+				        </li>
+				      </ul>
+				      
+				    </div>
+				  </div>
+			</nav>
+
+		</div>
+	</div>
+	<!-- End Navigation Bar -->
+
+	<!-- Navigation Bar in Profile-->
+	<div class="header-background">
+		<div id="nav" class="sticky-nav">
+			<nav class="navbar navbar-expand-lg navbar-light ">
+				<div class="container-fluid">
+				  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"><!-- --></span>
+				    </button>
+				    <div class="profile-navbar collapse navbar-collapse" id="navbarSupportedContent">
+				      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+				        <li class="nav-item ">
+				          <a class="nav-link active profile-navbar-links red-orange rounded-pill" aria-current="page" href="profile-tracks.html">Tracks</a>
+				        </li>
+				        <li class="nav-item">
+				          <a class="nav-link profile-navbar-links" href="profile-playlists.html">Playlist</a>
+				        </li>
+				        <li class="nav-item">
+				          <a class="nav-link profile-navbar-links"  href="profile-info.html">Info</a>
+				        </li>
+				      </ul>
+				      
+				    </div>
+				  </div>
+			</nav>
+
+		</div>
+	</div>
+	<!-- Navigation Bar in Profile -->
+
+
+	<div class="card text-dark bg-light mb-3 my-5 pb-5 contact-details " style="max-width: 18rem; float: right; margin-right: 450px;">
+		<div class="card-header num-tracks"><h3>Tracks: 5</h3></div>
+		<div class="card-body">
+		  <h5 class="card-title  py-3"><i class="fas fa-globe-asia"></i> JohnDoe.com</h5>
+		  <h5 class="card-title  py-3"><i class="fab fa-youtube-square"></i> ItsYourJoe</h5>
+		  <h5 class="card-title  py-3"><i class="fab fa-twitter-square"></i> @johnDough007</h5>
+		  <h5 class="card-title  py-3"><i class="fab fa-twitter-square"></i></i> JonyDonut</h5>
+		</div>
+	  </div>
+
+	<!-- Track Content -->
+	<div class="container-fluid gainsboro ">
+	
+		<div class="card mb-3">
+			
+			<div class="row no-gutters">
+			  <div class="col-md-3">
+				<img id="image_one" src="images/prettysavage.jpg">
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+				  <h5 class="card-title">Blackpink</h5>
+				  <P>Published on: January 02, 2021</P>
+				  <b>PRETTY SAVAGE</b>
+				  <p class="card-text">"Pretty Savage is a song recorded by South Korean girl group BLACKPINK. In the song, the girls express the things that have happened throughout their careers, especially about the hate they have received, 
+					  the 4 girls rush to respond to their haters and receive the criticism as a compliment."</p>
+					  <button class=profile-track-play-button >Play  <i class="fa fa-play"></i></button>
+				  <button class = profile-track-edit-button>Edit  <i class="fa fa-edit"></i></button>
+				  <button class = profile-track-delete-button>Delete <i class="fa fa-trash-o" ></i></button>
+				  <p class="card-text"></p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		<br>
+
+		<div class="card mb-3">
+			<div class="row no-gutters">
+			  <div class="col-md-3">
+				<img id="image_two" src="images/feelspecial.jpg">
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+				  <h5 class="card-title">Twice</h5>
+				  <P>Published on: June 02, 2020</P>
+				  <b>FEEL SPECIAL</b>
+				  <p class="card-text"> The meaning of this is that the love and joy a member can get could turn their frowns upside down and they are extremely thankful for that.
+				   You make me feel special! No matter how the world brings me down, Even when hurtful words stab me, I smile again 'cause you're there.</p>
+				   <button class=profile-track-play-button >Play  <i class="fa fa-play"></i></button>
+				   <button class = profile-track-edit-button>Edit  <i class="fa fa-edit"></i></button>
+				   <button class = profile-track-delete-button>Delete <i class="fa fa-trash-o" ></i></button>
+				  <p class="card-text"></p>
+				  
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		  <br>
+
+		  <div class="card mb-3">
+			<div class="row no-gutters">
+			  <div class="col-md-3">
+				<img id="image_three" src="images/wannabe.jpg">
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+				  <h5 class="card-title">Itzy</h5>
+				  <P>Published on: February 03, 2021</P>
+				  <b>WANNABE</b>
+				  <p class="card-text">"Wannabe" employs a combination of house and hip-hop/pop production that is mixed with bubblegum-pop melodies, 
+					  with the lyrics conveying themes stressing the importance of personal identity and individuality.</p>
+					  <button class=profile-track-play-button >Play  <i class="fa fa-play"></i></button>
+					  <button class = profile-track-edit-button>Edit  <i class="fa fa-edit"></i></button>
+					  <button class = profile-track-delete-button>Delete <i class="fa fa-trash-o" ></i></button>
+				  <p class="card-text"></p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		  <br>
+
+
+
+		  <div class="card mb-3">
+			<div class="row no-gutters">
+			  <div class="col-md-3">
+				<img id="image_four" src="images/IntoNew.png">
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+				  <h5 class="card-title">Girls' Generation</h5>
+				  <P>Published on: March 22, 2021</P>
+				  <b>INTO THE NEW WORLD</b>
+				  <p class="card-text">"Into The New World"  is the debut single by South Korean girl group Girls' Generation. It was composed by Kenzie and written by Kim Jeong-bae. 
+					  It was released on August 3, 2007, by SM Entertainment and distributed by Genie Music, and on August 6 as a physical copy. It was later included on Girls' Generation's debut album (2007).</p>
+					  <button class=profile-track-play-button >Play  <i class="fa fa-play"></i></button>
+					  <button class = profile-track-edit-button>Edit  <i class="fa fa-edit"></i></button>
+					  <button class = profile-track-delete-button>Delete <i class="fa fa-trash-o" ></i></button>
+				  <p class="card-text"></p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <br>
+
+
+		  <div class="card mb-3">
+			<div class="row no-gutters">
+			  <div class="col-md-3">
+				<img id="image_five" src="images/titanic.png" >
+			  </div>
+			  <div class="col-md-8">
+				<div class="card-body">
+				  <h5 class="card-title">Celine Dion - Titanic</h5>
+				  <P>Published on: December 11, 2020</P>
+				 <b>MY HEART WILL GO ON</b>
+				 <p class="card-text">"My Heart Will Go On" is a song recorded by Canadian singer Celine Dion. It serves as the main theme song to James Cameron's blockbuster film Titanic. </p>
+				 <button class=profile-track-play-button > Play  <i class="fa fa-play"></i></button>
+				 <button class = profile-track-edit-button>Edit  <i class="fa fa-edit"></i></button>
+				 <button class = profile-track-delete-button>Delete <i class="fa fa-trash-o" ></i></button>
+				  <p class="card-text"></p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		  <br>
+		  
+		</div>
+		</div>
+		</div>
+
+		
+			
+
+
+  		<div class="row vh-100 ">
+
+
+			
+  			<div class="col-md-8 "></div>
+
+
+
+			  
+  			<div class="col-md-4 "></div>
+
+
+
+			  
+  		</div> 
+
+
+
+
+	  
+ </body>
+ </html>
