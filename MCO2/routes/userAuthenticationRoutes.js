@@ -2,6 +2,7 @@
 // import module `express`
 const express = require('express');
 
+
 // import module `controller` from `../controllers/controller.js`
 const controller = require('../controllers/controller.js');
 
@@ -9,7 +10,8 @@ const controller = require('../controllers/controller.js');
 const signupController = require('../controllers/signupController.js');
 
 // import module `successController` from `../controllers/successController.js`
-const successController = require('../controllers/successController.js');
+const logInController = require('../controllers/logInController.js');
+
 
 // import module `profileController` from `../controllers/profileController.js`
 const profileController = require('../controllers/profileController.js');

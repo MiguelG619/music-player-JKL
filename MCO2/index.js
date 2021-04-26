@@ -6,7 +6,9 @@ const express = require('express');
 const hbs = require('hbs');
 
 // import module `routes` from `./routes/routes.js`
-const routes = require('./routes/routes.js');
+const userRoutes = require('./routes/userAuthenticationRoutes.js');
+const trackRoutes = require('./routes/trackDBController.js');
+const playlistRoutes = require('./routes/playlistRoutes.js');
 
 // import module `database` from `./model/db.js`
 const db = require('./models/db.js');

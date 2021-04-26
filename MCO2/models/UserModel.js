@@ -6,34 +6,23 @@ var mongoose = require('mongoose');
 var UserSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true
+        required: [true, 'Username field is required']
     },
     password: {
         type: String,
         required: true
     },
-    // NOT SURE
-    tracks: {
-        type: String,
-        required: true
-    },
-    playlists: {
-        type: String,
-        required: true
-    },
-    icon: {
-        type: String,
-        required: true
-    },
-    avatar: {
+      avatar: {
         type: String,
         required: true
     },
     info: {
         type: String,
         required: true
-    }
-
+    },
+    // how to call
+    tracks: [trackSchema],
+    playlists: [playlistSchema]
 });
 
 /*
