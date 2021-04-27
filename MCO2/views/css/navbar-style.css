@@ -1,0 +1,41 @@
+/*Navigation Bar*/
+
+a:hover, .search-button:hover {
+    background-color: #f15025;
+    border-radius: 15px;
+}
+
+.top-navbar {
+	color: lightgrey;
+	font-weight: 500;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+
+.search-button {
+	border-color: #f15025;
+	color: #2D82B7 !important;
+}
+
+.home {
+	color: lightgrey !important;
+}
+
+.navbar-brand {
+	color: #f15025 !important;
+	font-size: 25px;
+}
+
+/*Search bar in navigation*/
+.search-button {
+	color: #f15025 !important;
+}
+
+.search-bar {
+	width: 500px;
+}
+
+.profile-icon {
+	border-radius: 20px
+}
+
