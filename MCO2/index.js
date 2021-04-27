@@ -31,6 +31,8 @@ app.use(express.static('public'));
 
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);
+app.use('', rouserRoutesutes);
+
 
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware

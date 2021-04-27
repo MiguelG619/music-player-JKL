@@ -22,7 +22,7 @@ const logInController = {
             the values in the input fields are stored in `req.body` object
             each <input> element is identified using its `name` attribute
             Example: the value entered in <input type="text" name="username">
-            can be retrieved using `req.body.fName`
+            can be retrieved using `req.body.username`
         */
         var username = req.body.username;
         var password = req.body.password;
