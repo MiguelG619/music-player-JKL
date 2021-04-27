@@ -14,6 +14,9 @@ const options = {
     useNewUrlParser: true
 };
 
+
+
+
 // defines an object which contains necessary database functions
 const database = {
 
@@ -27,6 +30,8 @@ const database = {
         });
     },
 
+    
+    // TO REMOVE????s Sino gagamit nito?
     /*
         inserts a single `doc` to the database based on the model `model`
     */

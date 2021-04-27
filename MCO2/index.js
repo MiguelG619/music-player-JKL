@@ -31,6 +31,7 @@ app.use(express.static('public'));
 
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);
+// routers
 app.use('', rouserRoutesutes);
 
 

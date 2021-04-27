@@ -9,8 +9,11 @@ const PlaylistSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    tracks: [tracks]
-     // [type: Object]
+    // array dapat 
+    tracks: {
+        type: String[], 
+     
+    }
 });
 
 const Playlist = mongoose.model("Playlist", PlaylistSchema);

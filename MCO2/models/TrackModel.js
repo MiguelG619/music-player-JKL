@@ -5,7 +5,7 @@ const TrackSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    artist: {
+    username: {
         type: String,
         required: true
     },
@@ -13,14 +13,19 @@ const TrackSchema = new mongoose.Schema ({
         type: Number,
         required: true
     },
-    coverImage: {
+    image: {
         type: String,
         required: true
     },
     description: {
         type: String,
         required: true
-    }
+    },
+    url: {
+        type: String,
+        require: true
+    },
+    
 });
 
 const Track = mongoose.model("Track", SongSchema);
