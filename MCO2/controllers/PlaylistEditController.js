@@ -13,9 +13,8 @@ const Playlist = require('../models/PlaylistModel.js');
 /*
 	editPlaylist : function (req, res) {
 		getUserQuery - user edited input
-		(db.findMany/One)- if true
 		db.updateOne/Many
-		render - redirect to playlist + 
+		render - redirect to playlist + w/ details
 		else 404
 	}
 */

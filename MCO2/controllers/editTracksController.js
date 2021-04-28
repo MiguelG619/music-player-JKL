@@ -16,7 +16,7 @@ const Track = require('../models/TrackModel.js');
 	editTrack : function (req, res) {
 		getTrackDetails - query of the request
 		(db.updateOne) 
-		renderResult - redirect to home?
+		renderResult - redirect to search tracks
 		else 404
 	}
 */

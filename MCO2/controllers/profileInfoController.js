@@ -8,9 +8,9 @@ const User = require('../models/UserModel.js');
 // const profileInfoController = {
 /*
 	getInfo : function (req, res) {
-		getUserQuery
+		load user username
 		(db.findOne) - info + details
-		render - redirect to tracks but with searched tracks only
+		render - redirect to profile
 	}
 
 	 deleteUser: function (req, res) {
