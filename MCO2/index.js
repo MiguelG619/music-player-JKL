@@ -6,7 +6,8 @@ const express = require('express');
 const hbs = require('hbs');
 
 // import module `routes` from `./routes/routes.js`
-const userRoutes = require('./routes/userAuthenticationRoutes.js');
+const userRoutes = require('./routes/signUpController.js');
+const logInRoutes = require('./routes/LogInController.js');
 const trackRoutes = require('./routes/trackDBController.js');
 const playlistRoutes = require('./routes/playlistRoutes.js');
 
@@ -30,23 +31,23 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 // define the paths contained in `./routes/routes.js`
-app.use('/', routes);
+// create indexoroutes inroutes
+app.use('/', indexRoutes);
 // routers
 app.use('', rouserRoutesutes);
 
 
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware
+// 
 app.use(function (req, res) {
-    res.render('error');
+	res.status(404)
+    res.write('Not Found');
 });
 
 // connects to the database
 db.connect();
 
-app.get('/', function(req, res) { 
-    res.render('login')
-})
 
 // binds the server to a specific port
 app.listen(port, function () {

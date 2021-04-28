@@ -1,75 +1,85 @@
+// import User model
+const User = require("../models/UserModel.js");
 
-/*
-    defines an object which contains functions executed as callback
-    when a client requests for `success` paths in the server
-*/
-const logInController = {
+// import jsonwebtoken for authorization
+const jwt = require("jsonwebtoken");
 
-    /*
-        executed when the client sends an HTTP GET request `/success`
-        as defined in `../routes/routes.js`
-    */
-     getLogIn: function (req, res) {
+// create varaible for key
+const jwt_key = "ccapdev";
 
-        // render `../views/index.hbs`
-        res.render('login');
-    },
 
-    postLogIn: function (req, res) {
 
-        /*
-            when submitting forms using HTTP POST method
-            the values in the input fields are stored in `req.body` object
-            each <input> element is identified using its `name` attribute
-            Example: the value entered in <input type="text" name="username">
-            can be retrieved using `req.body.username`
-        */
-        var username = req.body.username;
-        var password = req.body.password;
-        
-        // Stores it in an object to be passed into the database
-        var user = {
-            username: username,
-            password: password,
-        };
+const loginController = {
 
-         /*
-        executed when the client sends an HTTP GET request `/profile/:idNum`
-        as defined in `../routes/routes.js`
-    */
-        db.findOne(User, query, projection, function(result) {
-
-            /*
-                if the user exists in the database
-                render the profile page with their details
-                PUT TRACKS AND PLAYLSITA ND ICONS AND DEATAILS?
-            */
-            if(result != null) {
-                var details = {
-                    username: result.username,
-                    icon: result.lNmae,
-                    idNum: result.idNum
-                };
-
-                // render `../views/profile.hbs`
-                res.render('home-tracks', details);
+    // Checks if user already has an account
+  postLogin: function (req, res) {
+    User.findOne({
+        // Stores username to find
+        username: req.body.username
+    })
+      .exec().then(function (user) {
+        if (user) { 
+            // Checks if password matches the user's original password
+          bcrypt.compare(req.body.password, user.password, function (err, result) {
+            if (err) {
+              return res.status(401).json({
+                message: "Wrong password entered."
+              });
             }
-            /*
-                if the user does not exist in the database
-                render the error page
-            */
+            if (result) {
+              const token = jwt.sign( {
+                  username: user.username
+                },
+                // Creates a jsonwebtoken so the user can a 24 hours account
+                jwt_key, {
+                  expiresIn: "24h",
+                }
+              );
+              // returns the username and token
+              return res.status(200).json({
+                message: "Authentication Successful",
+                user: user,
+                token: token
+              });
+            } 
             else {
-                // render `../views/error.hbs`
-                res.status('401');
-                res.write('Client must authenticate (login or provide valid credentials) to access the resource');
+                // if user is already
+              return res.status(401).json({
+                message: "Authentication failure",
+              });
             }
+          });
+        } 
+        else {
+          return res.status(401).json({
+            message: "Authentication failure",
+          });
+        }
+      })
+      .catch(function (err) {
+        res.status(500).json({
+          error: err,
         });
-    }
+      });
+  },
 
+    deleteUser: function (req, res) {
+        // User to be removed
+    User.remove({ username: req.params.username })
+        // remove user
+      .exec().then(function (result) {
+        res.status(200).json({
+          message: "The user was deleted"
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          error: err,
+        });
+      });
+  },
 };
 
-/*
-    exports the object `successController` (defined above)
-    when another script exports from this file
-*/
-module.exports = successController;
+
+
+module.exports = userLoginController;
