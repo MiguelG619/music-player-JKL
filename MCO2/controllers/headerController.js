@@ -7,18 +7,22 @@ const User = require('../models/UserModel.js');
 /*
 const headerController {
 	
-	toHome : function (req, res) {
+	// if search bar has no value then show default songs
+	// else show with filter added
+	getHome : function (req, res) {
 		render - redirect to search tracks 
 		else 404	
 	}
 
-	toProfile: function (req, res) {
+	getProfile: function (req, res) {
 		db.findOne - find user
 		render - redirect to profile info w/ details
 		else 404
 	}
 
-	logOut : function (req, res) {
+	TODO getUpload:
+
+	getLogOut : function (req, res) {
 		logout
 		render - redirect to log In 
 		else 404

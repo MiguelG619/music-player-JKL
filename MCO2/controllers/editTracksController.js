@@ -13,7 +13,7 @@ const Track = require('../models/TrackModel.js');
 // const editTracksController = {
 
 /*
-	editTrack : function (req, res) {
+	updateTrack : function (req, res) {
 		getTrackDetails - query of the request
 		(db.updateOne) 
 		renderResult - redirect to search tracks

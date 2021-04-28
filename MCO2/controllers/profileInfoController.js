@@ -13,11 +13,12 @@ const User = require('../models/UserModel.js');
 		render - redirect to profile
 	}
 
-	 deleteUser: function (req, res) {
+	deleteUser: function (req, res) {
 	    (db.findOne) - if  username  found
 	    db.deleteMany - tracks
 	    db.deleteOne/Many - playlists?
 	    db.deleteOne - user
-	      render - redirect  to log in
-  }
+	    render - redirect  to log in
+  	}
+}
 */

@@ -12,7 +12,7 @@ const Track = require('../models/TrackModel.js');
 
 // const musicPlayerController = {
 /*
-	redirectToMusicPlayer : function (req, res) {
+	getMusicPlayer : function (req, res) {
 		getTrack - query/title of the track to be played
 		(db.findOne) - load details track
 		renderResult - redirect to music player
@@ -24,19 +24,19 @@ const Track = require('../models/TrackModel.js');
 		pause
 	}
 
-	next : function (req, res) {
+	getNext : function (req, res) {
 		(db.findOne) - load details track
 		renderResult - redirect to music player
 		else 404
 	}
 	
-	previous : function (req, res) {
+	getPrev : function (req, res) {
 		(db.findOne) - load details track
 		renderResult - redirect to music player
 		else 404
 	}
 
-	addToPlaylist : function (req, res) {
+	insertToPlaylist : function (req, res) {
 		(!db.findOne) - if no playlist then
 		db.insertOne 
 		renderResult - redirect to playlist

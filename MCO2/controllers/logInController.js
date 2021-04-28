@@ -7,14 +7,13 @@ const User = require('../models/UserModel.js');
 
 // const logInController = {
 /*
+  TODO getRegister:
+
   postLogIn : function (req, res) {
       (db.findOne) - if  username  found
       render - redirect to  homepage
       else 404
     }
 */
-
-// const loginController = {
-
     
 // module.exports = userLoginController;
