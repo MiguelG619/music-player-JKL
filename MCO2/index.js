@@ -44,6 +44,10 @@ app.use(function (req, res) {
 // connects to the database
 db.connect();
 
+app.get('/', function(req, res) { 
+    res.render('login')
+})
+
 // binds the server to a specific port
 app.listen(port, function () {
     console.log('app listening at port ' + port);
