@@ -9,7 +9,7 @@ const User = require('../models/UserModel.js');
 /*
 	getInfo : function (req, res) {
 		getUserQuery
-		(db.findOne)
+		(db.findOne) - info + details
 		render - redirect to tracks but with searched tracks only
 	}
 

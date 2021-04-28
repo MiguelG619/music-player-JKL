@@ -15,7 +15,7 @@ const Playlist = require('../models/PlaylistModel.js');
 		getUserQuery - user edited input
 		(db.findMany/One)- if true
 		db.updateOne/Many
-		render - redirect to playlist 
+		render - redirect to playlist + 
 		else 404
 	}
 */
