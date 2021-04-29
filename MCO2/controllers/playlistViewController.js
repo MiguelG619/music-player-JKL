@@ -10,7 +10,23 @@ const Track = require('../models/TrackModel.js');
 // import Playlist module
 const Playlist = require('../models/PlaylistModel.js');
 
-// const playlistViewController = {
+const playlistViewController = {
+
+	getPlaylist : function (req, res) {
+		// where to get user?
+		db.findOne(User, {username: req.body.username}, 'username', function (flag) {
+			if (flag) {
+				db.findMany(Playlist, {username: req.body.username}, '', function (flag) {
+					if (flag) {
+						flag = playlist;
+						res.render('profile-playlist', playlist);
+					}
+			});
+			}
+		});
+		
+	}
+};
 /*
 	getPlaylist : function (req, res) {
 		db.findMany - find User's playlists
@@ -20,3 +36,5 @@ const Playlist = require('../models/PlaylistModel.js');
 		else 404
 	}
 */
+
+module.exports = playlistViewController;

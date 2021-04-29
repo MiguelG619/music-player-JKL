@@ -9,7 +9,21 @@ const Track = require('../models/TrackModel.js');
 // import Playlist module
 const Playlist = require('../models/PlaylistModel.js');
 
-// const playlistEditController = {
+const playlistEditController = {
+
+	
+
+	// where to get username?
+	editPlaylist : function (req, res) {
+		let newPlaylist = {
+			playlistName: req.query.playlistName
+		};
+
+		db.updateOne(Playlist, {username: username}, newPlaylist);
+		res.render('profilePlaylist');
+	}
+
+}
 /*
 	editPlaylist : function (req, res) {
 		getUserQuery - user edited input
@@ -18,3 +32,4 @@ const Playlist = require('../models/PlaylistModel.js');
 		else 404
 	}
 */
+module.exports = profileInfoController;

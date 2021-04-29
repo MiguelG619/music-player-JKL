@@ -10,11 +10,10 @@ const PlaylistSchema = new mongoose.Schema ({
         required: true
     },
     // array dapat 
-    tracks: {
-        type: String[], 
-     
-    }
-});
+    tracks: [{
+        type: Object
+    }]
+}, {timestamps: true});
 
 const Playlist = mongoose.model("Playlist", PlaylistSchema);
 

@@ -7,7 +7,28 @@ const User = require('../models/UserModel.js');
 
 const Track = require('../models/TrackModel.js');
 
-// const searchTracksController = {
+const searchTracksController = {
+
+	getAllTracks : function (req, res) {
+		Track.find().then(result => {
+			// tracks must be in hbs (tracks.title, tracks.image, etc.)
+			res.render('searchTracks', {tracks: result});
+		})
+		.catch(err => {
+			console.log(err);
+		});
+	},
+
+	getTrack : function (req, res) {
+		Track.findOne({title: req.query.search}, (err, result) => {
+			res.render('/searchTracks?username' + username, {tracks: result});
+		}); 
+	}
+	
+};
+
+module.exports = searchTracksController;
+
 /*
 	getTracks : function (req, res) {
 		getUserQuery

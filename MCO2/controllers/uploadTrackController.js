@@ -7,7 +7,28 @@ const User = require('../models/UserModel.js');
 
 const Track = require('../models/TrackModel.js');
 
-// const uploadTrackController = {
+const uploadTrackController = {
+
+	postTrack : function (req, res) {
+		// automatically gets the user input 
+		const track = new Track(req.body);
+
+		track.save().then((result) => {
+			Track.find().then(resultTracks => {
+			// tracks must be in hbs (tracks.title, tracks.image, etc.)
+			// redirect to homepage with all tracks seen
+			res.render('searchTracks', {tracks: resultTracks});
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		});
+	}
+
+};
+
+
+module.exports = userSignupController;
 /*
 	postTrack : function (req, res) {
 		getTrackDetails - query of the request

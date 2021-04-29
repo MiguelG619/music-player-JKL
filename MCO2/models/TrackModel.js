@@ -24,9 +24,9 @@ const TrackSchema = new mongoose.Schema ({
     url: {
         type: String,
         require: true
-    },
+    }
     
-});
+}, {timestamps: true});
 
 const Track = mongoose.model("Track", SongSchema);
 module.exports = Track;

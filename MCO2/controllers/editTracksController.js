@@ -10,8 +10,19 @@ const Playlist = require('../models/PlaylistModel.js');
 
 const Track = require('../models/TrackModel.js');
 
-// const editTracksController = {
+const editTracksController = {
 
+	updateTrack : function (req, res) {
+		let title = req.query.title;
+		let description = req.query.description;
+
+		db.updateOne(Track, )
+        // playlistName[0]: playlist?
+    };
+	}
+};
+
+module.exports = editTracksController;
 /*
 	updateTrack : function (req, res) {
 		getTrackDetails - query of the request

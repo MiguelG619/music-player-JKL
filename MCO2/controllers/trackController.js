@@ -85,77 +85,9 @@ const trackController = {
   },
 
   deleteTrack: function (req, res) {
-    Track.findOneAndDelete({ url: req.body.url })
-      .then(function (result) {
-        // Playlist.updateMany(
-        //   {},
-        //   { $pull: { songs: { url: req.body.url } } },
-        //   { new: true }
-        // )
-          .then(
-            res.status(200).json({
-              message: "Track removed",
-            })
-          )
-          .catch(function (err) {
-            res.status(500).json({
-              error: err,
-            });
-          });
-      })
-      .catch(function (err) {
-        res.status(500).json({
-          error: err,
-        });
-      });
+    Track
   },
 
-  // Update track info
-  updateTrack: function (req, res) {
-    Track.findOneAndUpdate(
-      { url: req.body.url },
-      {
-        title: req.body.title,
-        artist: req.body.artist,
-        image: req.body.image,
-        duration: req.body.duration,
-      },
-      // { new: true }
-    )
-      .then(function (result) {
-        Playlist.updateMany(
-          {'tracks.url' : req.body.url},
-          {
-            $set: {
-              'tracks.$': {
-                title: req.body.title,
-                artist: req.body.artist,
-                url: req.body.url,
-                image: req.body.image,
-                duration: req.body.duration
-              },
-            },
-          },
-          { new: true }
-        )
-          .then(function () {
-            res.status(200).json({
-              message: "Track details updated",
-            });
-          })
-          .catch(function (err) {
-            res.status(500).json({
-              error: err,
-            });
-          });
-      })
-      .catch(function (err) {
-        console.log(err);
-        res.status(500).json({
-          error: err,
-        });
-      });
-  }
 };
 
 module.exports = songDBController;
