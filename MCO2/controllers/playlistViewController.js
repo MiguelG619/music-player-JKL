@@ -1,6 +1,6 @@
 
 // import module `database` from `../models/db.js`
-const db = require('../models/db.js');
+// const db = require('../models/db.js');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/UserModel.js');
@@ -13,17 +13,7 @@ const Playlist = require('../models/PlaylistModel.js');
 const playlistViewController = {
 
 	getPlaylist : function (req, res) {
-		// where to get user?
-		db.findOne(User, {username: req.body.username}, 'username', function (flag) {
-			if (flag) {
-				db.findMany(Playlist, {username: req.body.username}, '', function (flag) {
-					if (flag) {
-						flag = playlist;
-						res.render('profile-playlist', playlist);
-					}
-			});
-			}
-		});
+	
 		
 	}
 };

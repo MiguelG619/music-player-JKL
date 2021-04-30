@@ -1,6 +1,6 @@
 
 // import module `database` from `../models/db.js`
-const db = require('../models/db.js');
+// const db = require('../models/db.js');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/UserModel.js');
@@ -15,13 +15,20 @@ const searchTracksController = {
 			res.render('searchTracks', {tracks: result});
 		})
 		.catch(err => {
-			console.log(err);
+			res.status(404).json({
+                message: "Error"
+              });
 		});
 	},
 
 	getTrack : function (req, res) {
 		Track.findOne({title: req.query.search}, (err, result) => {
 			res.render('/searchTracks?username' + username, {tracks: result});
+		})
+		.catch(err => {
+			res.status(404).json({
+				message: "Error"
+			});
 		}); 
 	}
 	

@@ -84,10 +84,6 @@ const trackController = {
       });
   },
 
-  deleteTrack: function (req, res) {
-    Track
-  },
-
 };
 
 module.exports = songDBController;

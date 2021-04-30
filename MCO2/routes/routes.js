@@ -17,6 +17,8 @@ const profileController = require('../controllers/profileController.js');
 // ._id is automatically generated in mongoose
 app.get('/musicPlayer/:id', musicPlayerController.getTrack);
 
+app.delete('/:id', ...Controller.deleteTrack);
+
 
 
 

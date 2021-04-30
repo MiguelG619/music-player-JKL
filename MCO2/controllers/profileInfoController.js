@@ -1,6 +1,6 @@
 
 // import module `database` from `../models/db.js`
-const db = require('../models/db.js');
+// const db = require('../models/db.js');
 
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/UserModel.js');
@@ -9,16 +9,31 @@ const Playlist = require('../models/PlaylistModel.js');
 
 const profileInfoController = {
 
-	getInfo : function (req, res) {
-		// where to get info of user?
-		db.findOne(User, {username: req.body.username}, '', function (flag) {
-			flag = info;
-			res.render('profile-Info', info);
-		});
+	getPersonalInfo : function (req, res) {
+    // Not sure
+    User.findOne({user: req.jwt.user}, (err, result) => {
+      res.render('/searchTracks?username' + username, {tracks: result});
+    })
+    .catch(err => {
+      res.status(404).json({
+        message: "Error"
+      });
+    }); 
+  },
 
-	},
+  getOtherProfile : function (req, res) {
+    // Not sure
+    User.findOne({}, (err, result) => {
+      res.render('/searchTracks?username' + username, {tracks: result});
+    })
+    .catch(err => {
+      res.status(404).json({
+        message: "Error"
+      });
+    }); 
+  },
 
-	deleteUser: function (req, res) {
+		deleteUser: function (req, res) {
         // User to be removed
     User.remove({ username: req.params.username })
         // remove user
@@ -33,7 +48,9 @@ const profileInfoController = {
         });
       });
   }
+	
+	};
 
-};
+
 
 module.exports = profileInfoController;
