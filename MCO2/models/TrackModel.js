@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const TrackSchema = new mongoose.Schema ({
     title: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     username: {
         type: String,
@@ -23,7 +24,8 @@ const TrackSchema = new mongoose.Schema ({
     },
     url: {
         type: String,
-        require: true
+        require: true,
+        unique: true
     }
     
 }, {timestamps: true});

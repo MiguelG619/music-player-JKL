@@ -1,8 +1,6 @@
 // import module `mongoose`
 const mongoose = require('mongoose');
 
-const PlaylistSchema = require('./PlaylistSchema.js');
-
 // defines the schema for collection `users`
 const UserSchema = new mongoose.Schema({
     username: {
@@ -12,7 +10,8 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Username field is required']
+        required: [true, 'Password field is required'],
+        minlength: [6, 'Minimum length of password is 6']
     },
       picture: {
         type: String,

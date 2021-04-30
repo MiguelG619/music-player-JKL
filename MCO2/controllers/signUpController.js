@@ -1,17 +1,15 @@
-// // import module `database` from `../models/db.js`
-// const db = require('../models/db.js');
-
-// import module `User` from `../models/UserModel.js`
 const User = require('../models/UserModel.js');
-
-// import Playlist module
 const Playlist = require('../models/PlaylistModel.js');
-
 const bcrypt = require("bcrypt");
 
+const signUpController = {
 
-const signupController = {
-    // creates a user account
+
+  getSignUp : function (req,res) {
+    res.render('create-acc');
+  },
+
+      // creates a user account
   postSignUp: function (req, res) {
 
 // Checks if the username exists 
