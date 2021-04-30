@@ -9,12 +9,14 @@ const searchArtistsController = {
 
 
 	getAllArtist : function (req, res) {
-		User.find().then(result => {
+		User.find().sort({ createdAt: -1}).then(result => {
 			// tracks must be in hbs (tracks.title, tracks.image, etc.)
-			res.render('searchTracks', {tracks: result});
+			res.render('searchArtist', {artist: result});
 		})
 		.catch(err => {
-			console.log(err);
+			res.status(404).json({
+                message: "Error"
+              });
 		});
 	},
 

@@ -10,9 +10,9 @@ const Track = require('../models/TrackModel.js');
 const searchTracksController = {
 
 	getAllTracks : function (req, res) {
-		Track.find().then(result => {
+		Track.find().sort({ createdAt: -1}).then(result => {
 			// tracks must be in hbs (tracks.title, tracks.image, etc.)
-			res.render('searchTracks', {tracks: result});
+			res.render('searchTracks', {track: result});
 		})
 		.catch(err => {
 			res.status(404).json({
@@ -21,25 +21,18 @@ const searchTracksController = {
 		});
 	},
 
-	getTrack : function (req, res) {
-		Track.findOne({title: req.query.search}, (err, result) => {
-			res.render('/searchTracks?username' + username, {tracks: result});
+	getOneTrack : function (req, res) {
+		Track.findOne({title : req.query.search}, (err, result) => {
+			res.render('searchTracks', {track: result});
 		})
 		.catch(err => {
 			res.status(404).json({
-				message: "Error"
-			});
+                message: "Error"
+              });
 		}); 
+
 	}
 	
 };
 
 module.exports = searchTracksController;
-
-/*
-	getTracks : function (req, res) {
-		getUserQuery
-		(db.findOne)
-		render - redirect to tracks but with searched tracks only
-	}
-*/

@@ -12,32 +12,23 @@ const Playlist = require('../models/PlaylistModel.js');
 const profileEditController = {
 
 	updateProfile: function (req, res) {
-		const profile = new User(req.body);
+		// access iser first
+     	User.findOneAndUpdate(
+      		{username: user},
+      		{description: req.body.description}, 
+      		{new:true})
+	      	.then(result => {
+	      		res.render('profileInfo');
+	      	})
+	      	.catch(err => {
+	      		res.status(500).json({
+	      			message: "Error"
+	      		});
+	      	})
 
-		profile.save().then(result => {
-			res.redirect('profileInfo')
-		})
-		.catch(err => {
-			console.log(err);
-		});
-	},
+		}
+	};
 
-
-	deleteUser: function (req, res) {
-    	const id = req.params.id;
-
-    	User.findByIdAndDelete(id)
-    	.then(result => {
-    		res.json({ redirect: 'login'})
-    	})
-    	.catch(err => {
-      res.status(404).json({
-        message: "Error"
-      });
-    }); 
-
-	}
-};
 
 module.exports = loginController;
 

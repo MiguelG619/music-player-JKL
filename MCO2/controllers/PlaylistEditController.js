@@ -14,16 +14,38 @@ const playlistEditController = {
 	
 
 	// where to get username?
-	editPlaylist : function (req, res) {
-		let newPlaylist = {
-			playlistName: req.query.playlistName
-		};
+	updatePlaylist: function (req, res) {
+		// access user first
+     	Playlist.findOneAndUpdate(
+      		{username: user},
+      		{description: req.body.description}, 
+      		{new:true})
+	      	.then(result => {
+	      		res.render('playlistView');
+	      	})
+	      	.catch(err => {
+	      		res.status(500).json({
+	      			message: "Error"
+	      		});
+	      	});
 
-		db.updateOne(Playlist, {username: username}, newPlaylist);
-		res.render('profilePlaylist');
+		},
+
+		deletePlaylist: function (req, res) {
+		const id = req.params.id;
+
+		Playlist.findByIdAndDelete(id)
+		.then(result => {
+			res.json({ redirect: 'profilePlaylist'})
+		})
+		.catch(err => {
+			res.status(500).json({
+				message: "error"
+			});
+		});	
 	}
 
-}
+};
 /*
 	editPlaylist : function (req, res) {
 		getUserQuery - user edited input

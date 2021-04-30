@@ -22,31 +22,51 @@ const profileInfoController = {
   },
 
   getOtherProfile : function (req, res) {
-    // Not sure
-    User.findOne({}, (err, result) => {
-      res.render('/searchTracks?username' + username, {tracks: result});
+    const id = req.params.id;
+    User.findById(id).then(result => {
+      render('/profileInfo', {artist: result});
     })
     .catch(err => {
-      res.status(404).json({
+      res.status(500).json({
         message: "Error"
       });
     }); 
   },
 
+
 		deleteUser: function (req, res) {
-        // User to be removed
-    User.remove({ username: req.params.username })
-        // remove user
-      .exec().then(function (result) {
-        res.status(200).json({
-          message: "The user was deleted"
-        });
-      })
-      .catch(function (err) {
-        res.status(500).json({
-          error: err,
-        });
-      });
+        // HOW TO ACESS LOGGED IN USER
+      Track.deleteMany({artist: username}).then(result => {
+        console.log("success");
+        Playlist.deleteMany({user: username}).then(result => {
+            console.log(success);
+            User.deleteMany({user: username}).then(result => {
+              console.log(success);
+              res.json({ redirect: 'login'})
+            })
+            .catch(err => {
+              res.status(500).json({
+                message: "Error"
+              });
+      }); 
+        })
+        .catch(err => {
+          res.status(500).json({
+            message: "Error"
+          });
+        }); 
+        })
+        .catch(err => {
+          res.status(500).json({
+            message: "Error"
+          });
+        }); 
+      // how to acccess logedi n user
+     
+
+      // how to acccess logedi n user
+      
+
   }
 	
 	};

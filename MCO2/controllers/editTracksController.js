@@ -12,14 +12,18 @@ const Track = require('../models/TrackModel.js');
 
 const editTracksController = {
 
-	updateTrack : function (req, res) {
-		let title = req.query.title;
-		let description = req.query.description;
+	updateTrack: function (req, res) {
+		const profile = new User(req.body);
 
-		db.updateOne(Track, )
-        // playlistName[0]: playlist?
-    };
-	}
+		profile.save().then(result => {
+			res.redirect('profileInfo')
+		})
+		.catch(err => {
+			console.log(err);
+		});
+	},
+
+	
 };
 
 module.exports = editTracksController;

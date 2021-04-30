@@ -47,7 +47,7 @@ const trackController = {
   },
 
   // Track upload by the user
-  postUpload: function (req, res) {
+  postTrack: function (req, res) {
     // Checks to see if the track is already uploaded
     Track.findOne({ title: req.body.title })
       .exec().then(function (track) {

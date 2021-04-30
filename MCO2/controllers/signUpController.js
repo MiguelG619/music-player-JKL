@@ -7,6 +7,8 @@ const User = require('../models/UserModel.js');
 // import Playlist module
 const Playlist = require('../models/PlaylistModel.js');
 
+const bcrypt = require("bcrypt");
+
 
 const signupController = {
     // creates a user account

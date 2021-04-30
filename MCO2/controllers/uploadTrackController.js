@@ -10,30 +10,44 @@ const Track = require('../models/TrackModel.js');
 const uploadTrackController = {
 
 	postTrack : function (req, res) {
-		// automatically gets the user input 
-		const track = new Track(req.body);
-
-		track.save().then((result) => {
-			Track.find().then(resultTracks => {
-			// tracks must be in hbs (tracks.title, tracks.image, etc.)
-			// redirect to homepage with all tracks seen
-			res.render('searchTracks', {tracks: resultTracks});
+		// Checks to see if the track is already uploaded
+    Track.findOne({ title: req.body.title })
+      .exec().then(function (track) {
+        if (track) {
+          res.status(409).json({
+            message: "Track is already in the database",
+          });
+        } else {
+          // creates a track object
+          const track = new Track({
+            title: req.body.title,
+            artist: req.body.artist,
+            url: req.body.url,
+            image: req.body.image,
+            duration: req.body.duration
+          });
+          // saves the track object to the database
+          track.save().then(result => {
+			// Logged User
+			Track.find({username: user}).then(resultTracks => {
+				res.render('profilePlaylist', {track: resultTracks});
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch(err => {
+				res.status(500).json({
+					message: "error"
+				});
 			});
 		});
-	}
 
+        }
+      })
+      .catch(function (err) {
+        res.status(500).json({
+          error: err,
+        });
+      });
+  }
 };
 
 
 module.exports = userSignupController;
-/*
-	postTrack : function (req, res) {
-		getTrackDetails - query of the request
-		(!db.findOne) - Check title if no track yet,
-		renderResult - redirect to home tracks with new track uploaded
-		else 404
-	}
-*/
