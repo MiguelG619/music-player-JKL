@@ -1,37 +1,42 @@
 // import module `mongoose`
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // defines the schema for collection `users`
-const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema(
+  {
     username: {
-        type: String,
-        required: [true, 'Username field is required'],
-        unique: true
+      type: String,
+      required: [true, "Username field is required"],
+      unique: true,
     },
     password: {
-        type: String,
-        required: [true, 'Password field is required'],
-        minlength: [6, 'Minimum length of password is 6']
+      type: String,
+      required: [true, "Password field is required"],
+      minlength: [6, "Minimum length of password is 6"],
     },
-      picture: {
-        type: String,
-        required: true
+    picture: {
+      type: String,
+      required: true,
     },
     desc: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     // ARRAY
-    tracks: [{ 
-        type: Object
-
-    }],
+    tracks: [
+      {
+        type: Object,
+      },
+    ],
     // String para hanapin lang yung playlistname
-    playlistName: [{
-        type: String
-    }]
-
-}, {timestamps: true});
+    playlistName: [
+      {
+        type: String,
+      },
+    ],
+  },
+  { timestamps: true }
+);
 
 /*
     exports a mongoose.model object based on `UserSchema` (defined above)
@@ -39,4 +44,4 @@ const UserSchema = new mongoose.Schema({
     This model executes CRUD operations
     to collection `users` -> plural of the argument `User`
 */
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);
