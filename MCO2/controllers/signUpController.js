@@ -5,17 +5,19 @@ const bcrypt = require("bcrypt");
 const signUpController = {
 
 
-  getIndex: function (req, res) {
-    res.render("index");
+  getSignUp: function (req, res) {
+    res.render("register");
   },
 
   // creates a user account
   postSignUp: function (req, res) {
+    let username = req.body.Username;
+    let password = req.body.Password;
     // Checks if the username exists
     // Else create a new user model
     User.findOne({
       // Find this user input
-      username: req.body.username,
+      username: username,
     })
       .exec()
       .then(function (user) {
@@ -27,7 +29,7 @@ const signUpController = {
         }
         // Encrypt the user password
         else {
-          bcrypt.hash(req.body.password, 10, function (err, hash) {
+          bcrypt.hash(password, 10, function (err, hash) {
             if (err) {
               return res.status(500).json({
                 error: err,
@@ -36,7 +38,7 @@ const signUpController = {
             // Create a user model
             else {
               const user = new User({
-                username: req.body.username,
+                username: username,
                 password: hash,
               });
               // Creates the playlist for the user
@@ -46,7 +48,7 @@ const signUpController = {
                   // Initializes a blank array for the tracks
                   var tracksArray = [];
                   const playlist = new Playlist({
-                    username: req.body.username,
+                    username: username,
                     playlistName: "My Tracks",
                     tracks: tracksArray,
                   });
@@ -54,12 +56,9 @@ const signUpController = {
                   playlist
                     .save()
                     .then(function (result) {
-                      res.status(201).json({
-                        message: "User and user's playlist has been created.",
-                      });
+                      res.render('index');
                       // Check if user has signed up
-                      console.log(user);
-                      // res.redirect('/searchTracks');
+                     
                     })
                     .catch(function (err) {
                       console.log(err);

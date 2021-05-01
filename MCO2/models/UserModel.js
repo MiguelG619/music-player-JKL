@@ -16,11 +16,9 @@ const UserSchema = new mongoose.Schema(
     },
     picture: {
       type: String,
-      required: true,
     },
     desc: {
       type: String,
-      required: true,
     },
     // ARRAY
     tracks: [
