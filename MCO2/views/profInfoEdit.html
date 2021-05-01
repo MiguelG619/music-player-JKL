@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account Form</title>
+    
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header.css">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+<!-- Header -->
+    <header class="sticky">
+        <div class="left">
+            <a href="searchTracks.html"><img src="" alt="JKL"></img></a>
+            <input type="text" name="Search Bar" id="search-bar">
+            <input type="submit" action="./searchTracks.html" method="get" value="Search">
+        </div>
+        <div class="right">
+            <a href="profInfo.html">Profile</a>
+            <a href="trackUploadEdit.html">Upload</a>
+            <a href="index.html">Log-Out</a>
+        </div>
+    </header>
+<!-- End of Header -->
+<!-- My Register Form -->
+    <div class="register-box">
+        <h1>Edit Your Account</h1>
+        
+        <label for="Username">Username</label> <br>
+        <i class="fa fa-user" aria-hidden="true"></i> 
+        <input type="text" id="username" name="Username"> <br>
+
+        <label for="Password">Change Password</label> <br>
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <input type="password" id="password" name="Password"> <br>
+
+        <label for="Confirm">Confirm Password</label> <br>
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <input type="password" id="confirm" name="Confirm"> <br>
+
+        <label for="Description">Description</label> <br>
+        <input type="textarea" id="desc" name="Description"> <br>
+        
+        <input type="submit" value="Update">
+    </div>
+<!-- End of My Register Form -->
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+.upload-box {
+    position: absolute;
+    top: 352px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 504px;
+    width: 504px;
+    margin: auto;
+    border: 1px solid;
+
+    background-color: var(--light);
+}
+
+.header {
+    padding: 16px 0 16px 16px;
+    margin: 0 0 24px 0;
+    border-bottom: 1px solid;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+
+    margin: 0 0 16px 16px;
+
+    border-radius: 1px solid black;
+}
+
+form input[type=text], 
+form input[type=password] {
+    width: 96%;
+    /* border: none;
+    border-bottom: 4px solid; */
+    margin: 8px 0 24px 0;
+
+    text-indent: 8px;
+    font: inherit;
+}
+
+form input[type=submit] {
+    display: block;
+    /* margin: auto; */
+    margin: 48px auto;
+    width: 40%;
+    
+    text-align: center;
+    font: inherit;
+}

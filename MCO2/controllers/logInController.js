@@ -6,28 +6,28 @@ const jwt_key = "ccapdev";
 
 const loginController = {
 
-   getLogIn : function (req,res) {
-    // checks if a user is logged-in by checking the session data
-     if(req.session.idNum) 
-        res.redirect('/searchTracks/' + req.session.username);
-    else
-      res.render('login');
+  // getLogIn : function (req,res) {
+  // // checks if a user is logged-in by checking the session data
+  //   if(req.session.idNum) 
+  //     res.redirect('/searchTracks/' + req.session.username);
+  //   else
+  //     res.render('login');
+  //   else {
 
-    else {
+  //     var details = {
+  //         flag: false
+  //     };
 
-        var details = {
-            flag: false
-        };
-
-        res.render('login', details);
-    }
-  },
+  //     res.render('login', details);
+  //   }
+  // },
 
     // Checks if user already has an account
-  postLogin: function (req, res) {
+  postLogin: function(req, res) {
     User.findOne({
         // Stores username to find
         username: req.body.username
+        pw: reg.body.password
     })
       .exec().then(function (user) {
         if (user) { 
@@ -71,6 +71,49 @@ const loginController = {
           error: err,
         });
       });
+
+      postLogIn: function (req, res) {
+
+        var idNum = req.body.username;
+        var pw = req.body.pw;
+
+        db.findOne(User, {idNum: idNum}, '', function (result) {
+            if(result) {
+
+                var user = {
+                    fName: result.fName,
+                    lName: result.lName,
+                    idNum: result.idNum
+                };
+
+                bcrypt.compare(pw, result.pw, function(err, equal) {
+                    if(equal) {
+                        req.session.idNum = user.idNum;
+                        req.session.name = user.fName;
+                        res.redirect('/profile/' + user.idNum);
+                    }
+                    else {
+                        var details = {
+                            flag: false,
+                            error: `ID Number and/or Password is incorrect.`
+                        };
+                        res.render('login', details);
+                    }
+                });
+            }
+
+            else {
+
+
+                var details = {
+                    flag: false,
+                    error: `ID Number and/or Password is incorrect.`
+                };
+
+                res.render('login', details);
+            }
+        });
+    }
   },
 
   getLogout : function (req, res) {

@@ -24,7 +24,7 @@ const signUpController = {
           res.status(409).json({
             message: "Username already exists. Please enter a new one"
           });
-        } 
+        }
         // Encrypt the user password
         else {
           bcrypt.hash(req.body.password, 10, function (err, hash) {
@@ -45,7 +45,7 @@ const signUpController = {
                   var tracksArray = [];
                   const playlist = new Playlist({
                     username: req.body.username,
-                    playlistName: "playlist",
+                    playlistName: "My Tracks",
                     tracks: tracksArray,
                   });
                   // saves the playlist
