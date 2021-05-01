@@ -1,4 +1,5 @@
 const User = require("../models/UserModel.js");
+const bcrypt = require("bcrypt");
 
 const loginController = {
   getLogIn: function (req, res) {
@@ -16,24 +17,28 @@ const loginController = {
     const username = req.body.Username;
     const password = req.body.Password;
 
-    User.findOne({
-      username: username,
-    })
+    User.findOne({ username: username })
       .exec()
       .then((user) => {
         if (user) {
-          bcrypt.compare(password, user.password, (err, result) => {
+          bcrypt.compare(password, user.password, (err, equal) => {
             if (err)
               return res.status(401).json({
                 message: "Wrong password entered.",
               });
-            else if (result) res.render("index");
+            else if (equal) res.render("searchTracks");
+          });
+        } else {
+          console.log(err);
+          res.status(500).json({
+            error: err,
           });
         }
       })
       .catch((err) => {
-        res.status(500).json({
-          error: err,
+        console.log(err)
+        return res.status(401).json({
+          message: "Authentication failed!",
         });
       });
   },
@@ -43,7 +48,7 @@ const loginController = {
             logs-out the current user
             destroys the current values stored in `req.session`
         */
-    req.session.destroy(function (err) {
+    req.session.destroy((err) => {
       if (err) throw err;
 
       /*
