@@ -4,11 +4,10 @@ const logInController = require('../controllers/logInController');
 const router = express.Router();
 
 
-
-router.get('/signup', signUpController.getSignUp);
-router.post('/signup', signUpController.postSignUp);
-router.get('/login', logInController.getLogIn);
-router.post('/login', logInController.postLogIn);
-router.get('logout', logInController.getLogOut);
+router.get('/', signUpController.getIndex);
+router.post('/signUp', signUpController.postSignUp);
+router.get('/logIn', logInController.getLogIn);
+router.post('/logIn', logInController.postLogIn);
+router.get('logoOut', logInController.getLogOut);
 
 module.exports = router;

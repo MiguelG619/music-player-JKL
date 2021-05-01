@@ -1,11 +1,17 @@
 const express = require("express");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 const hbs = require("hbs");
+const searchRoutes = require("./routes/searchRoutes");
+const session = require('express-session');
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const trackRoutes = require("./routes/trackRoutes");
 const playlistRoutes = require("./routes/playlistRoutes");
-const searchRoutes = require("./routes/searchRoutes");
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
+
+
+
 
 // import module `routes` from `./routes/routes.js`
 // const userRoutes = require('./routes/signUpController.js');
@@ -29,11 +35,20 @@ hbs.registerPartials(__dirname + "/views/partials");
 // parses incoming requests with urlencoded payloads
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(cookieParser());
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
-app.use(express.static("public"));
-app.use(express.static("views"));
+app.use(express.static(__dirname + "public"));
+app.use(express.static(__dirname + "views"));
+
+// use `express-session`` middleware and set its options
+// use `MongoStore` as server-side session storage
+app.use(session({
+    'secret': 'ccapdev-session',
+    'resave': false,
+    'saveUninitialized': false,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
+}));	
 
 app.use(authRoutes);
 app.use(profileRoutes);

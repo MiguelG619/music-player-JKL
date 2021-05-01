@@ -48,4 +48,4 @@ const uploadTrackController = {
   },
 };
 
-module.exports = userSignupController;
+module.exports = uploadTrackController;

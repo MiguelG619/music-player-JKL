@@ -22,4 +22,4 @@ const musicPlayerController = {
   },
 };
 
-module.exports = searchTracksController;
+module.exports = musicPlayerController;

@@ -3,8 +3,10 @@ const Playlist = require("../models/PlaylistModel.js");
 const bcrypt = require("bcrypt");
 
 const signUpController = {
-  getSignUp: function (req, res) {
-    res.render("create-acc");
+
+
+  getIndex: function (req, res) {
+    res.render("index");
   },
 
   // creates a user account
@@ -55,6 +57,9 @@ const signUpController = {
                       res.status(201).json({
                         message: "User and user's playlist has been created.",
                       });
+                      // Check if user has signed up
+                      console.log(user);
+                      // res.redirect('/searchTracks');
                     })
                     .catch(function (err) {
                       console.log(err);

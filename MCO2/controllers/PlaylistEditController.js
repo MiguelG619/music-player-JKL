@@ -43,4 +43,4 @@ const playlistEditController = {
   },
 };
 
-module.exports = profileInfoController;
+module.exports = playlistEditController;

@@ -1,33 +1,22 @@
 const User = require("../models/UserModel.js");
-// import jsonwebtoken for authorization
-const jwt = require("jsonwebtoken");
-// create varaible for key
-const jwt_key = "ccapdev";
 
 const loginController = {
 
-  // getLogIn : function (req,res) {
-  // // checks if a user is logged-in by checking the session data
-  //   if(req.session.idNum) 
-  //     res.redirect('/searchTracks/' + req.session.username);
-  //   else
-  //     res.render('login');
-  //   else {
-
-  //     var details = {
-  //         flag: false
-  //     };
-
-  //     res.render('login', details);
-  //   }
-  // },
+  getLogIn: function (req, res) {
+        // checks if a user is logged-in by checking the session data
+        if(req.session.idNum) 
+            res.redirect('/searchTracks/' + req.session.idNum);
+        // else if a user is not yet logged-in
+        else {
+            res.render('login');
+        }
+    },
 
     // Checks if user already has an account
-  postLogin: function(req, res) {
+  postLogIn: function(req, res) {
     User.findOne({
-        // Stores username to find
-        username: req.body.username
-        pw: reg.body.password
+        username: req.body.username,
+        password: reg.body.password
     })
       .exec().then(function (user) {
         if (user) { 
@@ -39,18 +28,9 @@ const loginController = {
               });
             }
             else if (result) {
-              const token = jwt.sign( { username: user.username},
-                jwt_key, { expiresIn: "1h"}
-              );
-              res.cookie('jwt', token, { httpOnly: true, maxAge: 1800});
-              res.status(200).json({
-                message: "Authentication success!",
-                token: token,
-                user: user
-              });
-              req.session.idNum = user._id;
-              req.session.name = user.username;
-              res.redirect('/searchTracks/' + user.username);
+              console.log(req.session);
+              req.session.user = user;
+              res.redirect('/searchTracks/' + user);
             } 
             else {
                 // if user is already
@@ -71,52 +51,9 @@ const loginController = {
           error: err,
         });
       });
-
-      postLogIn: function (req, res) {
-
-        var idNum = req.body.username;
-        var pw = req.body.pw;
-
-        db.findOne(User, {idNum: idNum}, '', function (result) {
-            if(result) {
-
-                var user = {
-                    fName: result.fName,
-                    lName: result.lName,
-                    idNum: result.idNum
-                };
-
-                bcrypt.compare(pw, result.pw, function(err, equal) {
-                    if(equal) {
-                        req.session.idNum = user.idNum;
-                        req.session.name = user.fName;
-                        res.redirect('/profile/' + user.idNum);
-                    }
-                    else {
-                        var details = {
-                            flag: false,
-                            error: `ID Number and/or Password is incorrect.`
-                        };
-                        res.render('login', details);
-                    }
-                });
-            }
-
-            else {
-
-
-                var details = {
-                    flag: false,
-                    error: `ID Number and/or Password is incorrect.`
-                };
-
-                res.render('login', details);
-            }
-        });
-    }
   },
 
-  getLogout : function (req, res) {
+  getLogOut : function (req, res) {
     /*
             logs-out the current user
             destroys the current values stored in `req.session`

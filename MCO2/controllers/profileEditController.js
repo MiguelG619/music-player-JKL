@@ -60,7 +60,7 @@ const profileEditController = {
   },
 };
 
-module.exports = loginController;
+module.exports = profileEditController;
 
 /*
 	editProfile : function (req, res) {
