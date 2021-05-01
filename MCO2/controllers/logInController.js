@@ -7,7 +7,20 @@ const jwt_key = "ccapdev";
 const loginController = {
 
    getLogIn : function (req,res) {
-    res.render('login');
+    // checks if a user is logged-in by checking the session data
+     if(req.session.idNum) 
+        res.redirect('/searchTracks/' + req.session.username);
+    else
+      res.render('login');
+
+    else {
+
+        var details = {
+            flag: false
+        };
+
+        res.render('login', details);
+    }
   },
 
     // Checks if user already has an account
@@ -25,18 +38,19 @@ const loginController = {
                 message: "Wrong password entered."
               });
             }
-            if (result) {
+            else if (result) {
               const token = jwt.sign( { username: user.username},
                 jwt_key, { expiresIn: "1h"}
               );
-              // returns the username and token
-              // return res.status(200).json({
-              //   message: "Authentication Successful",
-              //   user: user,
-              //   token: token
-              // });
               res.cookie('jwt', token, { httpOnly: true, maxAge: 1800});
-              res.status(201).json(user);
+              res.status(200).json({
+                message: "Authentication success!",
+                token: token,
+                user: user
+              });
+              req.session.idNum = user._id;
+              req.session.name = user.username;
+              res.redirect('/searchTracks/' + user.username);
             } 
             else {
                 // if user is already
@@ -57,6 +71,23 @@ const loginController = {
           error: err,
         });
       });
+  },
+
+  getLogout : function (req, res) {
+    /*
+            logs-out the current user
+            destroys the current values stored in `req.session`
+        */
+        req.session.destroy(function(err) {
+            if(err) throw err;
+
+            /*
+                redirects the client to `/profile` using HTTP GET,
+                defined in `../routes/routes.js`
+            */
+            res.redirect('/login');
+        });
+
   }
 
 

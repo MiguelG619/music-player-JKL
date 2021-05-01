@@ -23,13 +23,13 @@ const uploadTrackController = {
             title: req.body.title,
             artist: req.body.artist,
             url: req.body.url,
-            image: req.body.image,
+            // image: req.body.image,
             duration: req.body.duration
           });
           // saves the track object to the database
           track.save().then(result => {
 			// Logged User
-			Track.find({username: user}).then(resultTracks => {
+			Track.find({username: req.body.username}).then(resultTracks => {
 				res.render('profilePlaylist', {track: resultTracks});
 			})
 			.catch(err => {

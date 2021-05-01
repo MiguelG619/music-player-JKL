@@ -2,6 +2,11 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const hbs = require('hbs');
 const authRoutes = require('./routes/authRoutes');
+const profileRoutes = require('./routes/profileRoutes');
+const trackRoutes = require('./routes/trackRoutes');
+const playlistRoutes = require('./routes/playlistRoutes');
+const searchRoutes = require('./routes/searchRoutes');
+
 
 // import module `routes` from `./routes/routes.js`
 // const userRoutes = require('./routes/signUpController.js');
@@ -25,11 +30,17 @@ hbs.registerPartials(__dirname + '/views/partials');
 // parses incoming requests with urlencoded payloads
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
-app.user(cookieParser());
+app.use(cookieParser());
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
 app.use(express.static('public'));
+app.use(express.static('views'));
+
 app.use(authRoutes);
+app.use(profileRoutes);
+app.use(trackRoutes);
+app.use(playlistRoutes);
+app.use(searchRoutes);
 
 
 

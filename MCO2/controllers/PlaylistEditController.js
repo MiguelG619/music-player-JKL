@@ -32,26 +32,19 @@ const playlistEditController = {
 		},
 
 		deletePlaylist: function (req, res) {
-		const id = req.params.id;
+			const id = req.params.id;
 
-		Playlist.findByIdAndDelete(id)
-		.then(result => {
-			res.json({ redirect: 'profilePlaylist'})
-		})
-		.catch(err => {
-			res.status(500).json({
-				message: "error"
-			});
-		});	
-	}
+			Playlist.findByIdAndDelete(id)
+			.then(result => {
+				res.json({ redirect: 'profilePlaylist'})
+			})
+			.catch(err => {
+				res.status(500).json({
+					message: "error"
+				});
+			});	
+		}
 
 };
-/*
-	editPlaylist : function (req, res) {
-		getUserQuery - user edited input
-		db.updateOne/Many
-		render - redirect to playlist + w/ details
-		else 404
-	}
-*/
+
 module.exports = profileInfoController;

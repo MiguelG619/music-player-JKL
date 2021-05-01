@@ -11,7 +11,7 @@ const profileInfoController = {
 
 	getPersonalInfo : function (req, res) {
     // Not sure
-    User.findOne({user: req.jwt.user}, (err, result) => {
+    User.findOne({user: req.username.body}, (err, result) => {
       res.render('/searchTracks?username' + username, {tracks: result});
     })
     .catch(err => {
@@ -34,40 +34,6 @@ const profileInfoController = {
   },
 
 
-		deleteUser: function (req, res) {
-        // HOW TO ACESS LOGGED IN USER
-      Track.deleteMany({artist: username}).then(result => {
-        console.log("success");
-        Playlist.deleteMany({user: username}).then(result => {
-            console.log(success);
-            User.deleteMany({user: username}).then(result => {
-              console.log(success);
-              res.json({ redirect: 'login'})
-            })
-            .catch(err => {
-              res.status(500).json({
-                message: "Error"
-              });
-      }); 
-        })
-        .catch(err => {
-          res.status(500).json({
-            message: "Error"
-          });
-        }); 
-        })
-        .catch(err => {
-          res.status(500).json({
-            message: "Error"
-          });
-        }); 
-      // how to acccess logedi n user
-     
-
-      // how to acccess logedi n user
-      
-
-  }
 	
 	};
 

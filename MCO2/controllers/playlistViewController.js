@@ -14,7 +14,7 @@ const playlistViewController = {
 
 	getAllPlaylists : function (req, res) {
 		// Input in find the user logged in
-		Playlist.find().sort({ createdAt: -1}).then(result => {
+		Playlist.find({username: req.body.username}).sort({ createdAt: -1}).then(result => {
 			// tracks must be in hbs (tracks.title, tracks.image, etc.)
 			res.render('playlistView', {track: result});
 		})
