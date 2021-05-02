@@ -55,13 +55,3 @@ const profileEditController = {
 
 module.exports = profileEditController;
 
-/*
-	editProfile : function (req, res) {
-		getUserQuery - user edited input
-		(db.updateOne) - 
-		render - redirect to profile info + details
-		else 404
-	}
-
-
-*/

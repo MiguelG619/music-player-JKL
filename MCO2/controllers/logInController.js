@@ -4,11 +4,7 @@ const bcrypt = require("bcrypt");
 const loginController = {
   
   getLogIn: function (req, res) {
-    // checks if a user is logged-in by checking the session data
-    // if(req.session.idNum)
-    //     res.redirect('/searchTracks/' + req.session.idNum);
-    // // else if a user is not yet logged-in
-    // else {
+
     res.render("index");
     // }
   },
