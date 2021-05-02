@@ -11,8 +11,9 @@ const Track = require("../models/TrackModel.js");
 
 const editTracksController = {
   updateTrack: function (req, res) {
+    const id = req.params.id;
     Track.findOneAndUpdate(
-      { title: req.body.title },
+      { id },
       {
         title: req.body.title,
         description: req.body.description,
@@ -22,7 +23,7 @@ const editTracksController = {
     )
       .then((result) => {
         console.log(result);
-        res.redirect("searchTracks");
+        res.redirect("/searchTracks");
       })
       .catch((err) => {
         console.log(err);
@@ -34,25 +35,30 @@ const editTracksController = {
 
   deleteTrack: function (req, res) {
     const id = req.params.id;
-
-    Track.findByIdAndDelete(id)
+    Track.findByIDAndDelete(id)
       .then((result) => {
-        res.json({ redirect: "profilePlaylist" });
+        Playlist.updateMany(
+          {},
+          { $pull: { songs: { url: req.body.url } } },
+          { new: true }
+        )
+          .then((playlist) => {
+            res.redirect("/searchTracks");
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json({
+              error: err,
+            });
+          });
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json({
-          message: "error",
+          error: err,
         });
       });
   },
 };
 
 module.exports = editTracksController;
-/*
-	updateTrack : function (req, res) {
-		getTrackDetails - query of the request
-		(db.updateOne) 
-		renderResult - redirect to search tracks
-		else 404
-	}
-*/

@@ -7,14 +7,16 @@ const User = require("../models/UserModel.js");
 const Track = require("../models/TrackModel.js");
 
 const uploadTrackController = {
+
   postTrack: function (req, res) {
+    const username = req.session.user.username;
     // Checks to see if the track is already uploaded
     Track.findOne({ title: req.body.title })
       .exec()
       .then(function (track) {
         if (track) {
           res.status(409).json({
-            message: "Track is already in the database",
+            message: "Track already exists",
           });
         } else {
           // creates a track object
@@ -27,16 +29,12 @@ const uploadTrackController = {
           });
           // saves the track object to the database
           track.save().then((result) => {
-            // Logged User
-            Track.find({ username: req.body.username })
-              .then((resultTracks) => {
-                res.render("profilePlaylist", { track: resultTracks });
-              })
-              .catch((err) => {
-                res.status(500).json({
-                  message: "error",
-                });
-              });
+            res.redirect("searchTracks");
+          })
+          .catch(err => {
+            res.statust(500).json({
+              error: err
+            });
           });
         }
       })

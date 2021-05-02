@@ -5,28 +5,28 @@ const TrackSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
+      unique: true
     },
     username: {
       type: String,
-      required: true,
+      required: true
     },
     duration: {
       type: Number,
-      required: true,
+      required: true
     },
     image: {
       type: String,
-      required: true,
+      required: true
     },
     description: {
       type: String,
-      required: true,
+      required: true
     },
     url: {
       type: String,
       require: true,
-      unique: true,
+      unique: true
     },
   },
   { timestamps: true }

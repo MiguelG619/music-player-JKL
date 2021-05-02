@@ -4,16 +4,16 @@ const PlaylistSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true,
+      required: true
     },
     playlistName: {
       type: String,
-      required: true,
+      required: true
     },
     // array dapat
     tracks: [
       {
-        type: Object,
+        type: Object
       },
     ],
   },

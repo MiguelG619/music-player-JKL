@@ -10,16 +10,17 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const playlistEditController = {
-  // where to get username?
+
   updatePlaylist: function (req, res) {
-    // access user first
     Playlist.findOneAndUpdate(
-      { username: user },
-      { description: req.body.description },
+      { username: req.session.user.username},
+      { playlistName: req.body.playlistName,
+        description: req.body.description 
+      },
       { new: true }
     )
       .then((result) => {
-        res.render("playlistView");
+        res.redirect("/playlistView");
       })
       .catch((err) => {
         res.status(500).json({
@@ -33,7 +34,7 @@ const playlistEditController = {
 
     Playlist.findByIdAndDelete(id)
       .then((result) => {
-        res.json({ redirect: "profilePlaylist" });
+        res.redirect("/playlistView");
       })
       .catch((err) => {
         res.status(500).json({

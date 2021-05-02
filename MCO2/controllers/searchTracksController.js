@@ -7,6 +7,7 @@ const User = require("../models/UserModel.js");
 const Track = require("../models/TrackModel.js");
 
 const searchTracksController = {
+  
   getAllTracks: function (req, res) {
     Track.find()
       .sort({ createdAt: -1 })

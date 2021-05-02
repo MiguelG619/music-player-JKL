@@ -5,7 +5,8 @@
 const User = require("../models/UserModel.js");
 
 const searchArtistsController = {
-  getAllArtist: function (req, res) {
+  
+  getAllArtists: function (req, res) {
     User.find()
       .sort({ createdAt: -1 })
       .then((result) => {
@@ -19,7 +20,7 @@ const searchArtistsController = {
       });
   },
 
-  getArtist: function (req, res) {
+  getOneArtist: function (req, res) {
     User.findOne({ title: req.query.search }, (err, result) => {
       res.render("/profileInfo?username" + username, { tracks: result });
     }).catch((err) => {

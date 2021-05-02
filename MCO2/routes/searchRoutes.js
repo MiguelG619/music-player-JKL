@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.get('/searchTracks', searchTracksController.getAllTracks);
 router.get('/searchTracks/search', searchTracksController.getOneTrack);
-router.get('/searchArtists', searchArtistsController.getAllArtist);
-router.get('/searchArtists/search', searchArtistsController.getArtist);
+router.get('/searchArtists', searchArtistsController.getAllArtists);
+router.get('/searchArtists/search', searchArtistsController.getOneArtist);
 
 
 module.exports = router;

@@ -56,9 +56,7 @@ const signUpController = {
                   playlist
                     .save()
                     .then(function (result) {
-                      res.render('index');
-                      // Check if user has signed up
-                     
+                      res.render('index');                     
                     })
                     .catch(function (err) {
                       console.log(err);

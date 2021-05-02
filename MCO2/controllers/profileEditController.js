@@ -1,24 +1,17 @@
-// import module `database` from `../models/db.js`
-// const db = require('../models/db.js');
-
-// import module `User` from `../models/UserModel.js`
 const User = require("../models/UserModel.js");
-
 const Track = require("../models/TrackModel.js");
-
-// import Playlist module
 const Playlist = require("../models/PlaylistModel.js");
-
 const profileEditController = {
+
   updateProfile: function (req, res) {
-    // access iser first
+    const username = req.session.user.username;
     User.findOneAndUpdate(
-      { username: user },
+      { username: username },
       { description: req.body.description },
       { new: true }
     )
       .then((result) => {
-        res.render("profileInfo");
+        res.redirect("/profileInfo");
       })
       .catch((err) => {
         res.status(500).json({
@@ -28,17 +21,17 @@ const profileEditController = {
   },
 
   deleteUser: function (req, res) {
-    // HOW TO ACESS LOGGED IN USER
-    Track.deleteMany({ artist: req.body.username })
+    const username = req.session.user.username;
+    Track.deleteMany({ artist: username })
       .then((result) => {
         console.log("success");
-        Playlist.deleteMany({ user: req.body.username })
+        Playlist.deleteMany({ username: username })
           .then((result) => {
             console.log(success);
-            User.deleteMany({ user: req.body.username })
+            User.deleteMany({ username: username })
               .then((result) => {
                 console.log(success);
-                res.json({ redirect: "login" });
+                res.redirect("/index");
               })
               .catch((err) => {
                 res.status(500).json({

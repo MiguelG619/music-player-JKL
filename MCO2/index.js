@@ -38,8 +38,8 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(cookieParser());
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
-app.use(express.static(__dirname + "public"));
-app.use(express.static(__dirname + "views"));
+app.use(express.static('public'));
+
 
 // use `express-session`` middleware and set its options
 // use `MongoStore` as server-side session storage

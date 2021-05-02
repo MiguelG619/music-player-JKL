@@ -10,6 +10,7 @@ const Playlist = require("../models/PlaylistModel.js");
 const Track = require("../models/TrackModel.js");
 
 const musicPlayerController = {
+  
   getTrack: function (req, res) {
     const id = req.params.id;
     Track.findById(id)

@@ -2,6 +2,7 @@ const User = require("../models/UserModel.js");
 const bcrypt = require("bcrypt");
 
 const loginController = {
+  
   getLogIn: function (req, res) {
     // checks if a user is logged-in by checking the session data
     // if(req.session.idNum)
@@ -26,12 +27,15 @@ const loginController = {
               return res.status(401).json({
                 message: "Wrong password entered.",
               });
-            else if (equal) res.render("searchTracks");
+            else if (equal) {
+              req.session.user = user;
+               res.render("searchTracks", {user: req.session.user});
+            }
+             
           });
         } else {
-          console.log(err);
-          res.status(500).json({
-            error: err,
+          res.status(401).json({
+            message: err,
           });
         }
       })

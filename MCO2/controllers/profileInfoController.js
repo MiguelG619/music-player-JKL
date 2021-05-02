@@ -7,10 +7,11 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const profileInfoController = {
+
   getPersonalInfo: function (req, res) {
-    // Not sure
-    User.findOne({ user: req.username.body }, (err, result) => {
-      res.render("/searchTracks?username" + username, { tracks: result });
+      const username = req.session.user.username;
+    User.findOne({ username: username }, (err, result) => {
+      res.render("/searchTracks?username" + username, { artist: result });
     }).catch((err) => {
       res.status(404).json({
         message: "Error",

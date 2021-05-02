@@ -7,29 +7,29 @@ const UserSchema = new mongoose.Schema(
     username: {
       type: String,
       required: [true, "Username field is required"],
-      unique: true,
+      unique: true
     },
     password: {
       type: String,
       required: [true, "Password field is required"],
-      minlength: [6, "Minimum length of password is 6"],
+      minlength: [6, "Minimum length of password is 6"]
     },
     picture: {
-      type: String,
+      type: String
     },
     desc: {
-      type: String,
+      type: String
     },
     // ARRAY
     tracks: [
       {
-        type: Object,
+        type: Object
       },
     ],
     // String para hanapin lang yung playlistname
     playlistName: [
       {
-        type: String,
+        type: String
       },
     ],
   },
