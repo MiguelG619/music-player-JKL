@@ -1,8 +1,9 @@
 /*Profile Info*/
 .info-card {
-	margin: 80px 40px;
+  margin: 80px 40px;
 }
 
-.edit-info , .delete-account{
-	background-color: lightgrey;
+.edit-info,
+.delete-account {
+  background-color: lightgrey;
 }
