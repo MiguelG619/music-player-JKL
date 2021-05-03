@@ -14,6 +14,7 @@ const searchTracksController = {
       .then((result) => {
         // tracks must be in hbs (tracks.title, tracks.image, etc.)
         res.render("searchTracks", { track: result });
+        console.log(result);
       })
       .catch((err) => {
         res.status(404).json({

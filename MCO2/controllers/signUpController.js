@@ -11,8 +11,8 @@ const signUpController = {
 
   // creates a user account
   postSignUp: function (req, res) {
-    let username = req.body.Username;
-    let password = req.body.Password;
+    const username = req.body.Username;
+    const password = req.body.Password;
     // Checks if the username exists
     // Else create a new user model
     User.findOne({
@@ -49,8 +49,8 @@ const signUpController = {
                   var tracksArray = [];
                   const playlist = new Playlist({
                     username: username,
-                    playlistName: "My Tracks",
-                    tracks: tracksArray,
+                    playlistName: username + " Tracks",
+                    tracks: tracksArray
                   });
                   // saves the playlist
                   playlist

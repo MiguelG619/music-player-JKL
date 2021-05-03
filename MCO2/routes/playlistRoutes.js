@@ -1,10 +1,6 @@
-
-// import module `express`
 const express = require('express');
-
 const playlistViewController = require('../controllers/playlistViewController');
 const playlistEditController = require('../controllers/playlistEditController');
-
 const router = express.Router();
 
 router.get('/playlistView', playlistViewController.getAllPlaylists);

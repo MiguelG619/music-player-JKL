@@ -6,7 +6,8 @@ const editTrackController = require('../controllers/editTrackController');
 const router = express.Router();
 
 router.get('/musicPlayer:/:id', musicPlayerController.getTrack);
-router.post('/upload/create', uploadTrackController.postTrack);
+router.get('/upload', uploadTrackController.getUpload);
+router.post('/upload', uploadTrackController.postTrack);
 router.put('/editTrack', editTrackController.updateTrack);
 router.delete('/editTrack/delete', editTrackController.deleteTrack);
 

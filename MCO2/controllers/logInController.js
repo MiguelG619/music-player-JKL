@@ -1,8 +1,8 @@
 const User = require("../models/UserModel.js");
 const bcrypt = require("bcrypt");
+const Track = require("../models/TrackModel.js");
 
 const loginController = {
-  
   getLogIn: function (req, res) {
     // checks if a user is logged-in by checking the session data
     // if(req.session.idNum)
@@ -29,9 +29,21 @@ const loginController = {
               });
             else if (equal) {
               req.session.user = user;
-               res.render("searchTracks", {user: req.session.user});
+              Track.find()
+                .then((result) => {
+                  console.log(result);
+                  // tracks must be in hbs (tracks.title, tracks.image, etc.)
+                  console.log(req.session.user);
+                  res.render("searchTracks", { track: result });
+                  
+                })
+                .catch((err) => {
+                  res.status(404).json({
+                    message: "Error",
+                  });
+                });
+              // res.render("searchTracks", { user: req.session.user });
             }
-             
           });
         } else {
           res.status(401).json({
@@ -40,7 +52,7 @@ const loginController = {
         }
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         return res.status(401).json({
           message: "Authentication failed!",
         });

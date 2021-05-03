@@ -35,9 +35,7 @@ hbs.registerPartials(__dirname + "/views/partials");
 // parses incoming requests with urlencoded payloads
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser());
-// set the folder `public` as folder containing static assets
-// such as css, js, and image files
+
 app.use(express.static('public'));
 
 
