@@ -1,48 +1,48 @@
 form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    height: 504px;
-    width: 504px;
-    margin: auto;
-    border: 1px solid;
+  height: 504px;
+  width: 504px;
+  margin: auto;
+  border: 1px solid;
 
-    background-color: var(--light);
+  background-color: var(--light);
 }
 
 form h1 {
-    width: 45%;
-    border-bottom: 8px solid var(--primary);
-    margin: 24px 0 48px 24px;
-    padding: 0 0 8px 0;
+  width: 45%;
+  border-bottom: 8px solid var(--primary);
+  margin: 24px 0 48px 24px;
+  padding: 0 0 8px 0;
 }
 
 .txt-box {
-    text-align: center;
-    margin: 24px;
+  text-align: center;
+  margin: 24px;
 }
 
-.txt-box input[type=text], 
-.txt-box input[type=password] {
-    width: 70%;
-    border: none;
-    border-bottom: 4px solid;
-    text-indent: 8px;
-    font: inherit;
+.txt-box input[type="text"],
+.txt-box input[type="password"] {
+  width: 70%;
+  border: none;
+  border-bottom: 4px solid;
+  text-indent: 8px;
+  font: inherit;
 }
 
-input[type=submit] {
-    display: block;
-    margin: auto;
-    width: 50%;
-    
-    text-align: center;
-    font: inherit;
+input[type="submit"] {
+  display: block;
+  margin: auto;
+  width: 50%;
+
+  text-align: center;
+  font: inherit;
 }
 
 .register {
-    padding: 64px 0 0 0;
-    text-align: center;
+  padding: 64px 0 0 0;
+  text-align: center;
 }

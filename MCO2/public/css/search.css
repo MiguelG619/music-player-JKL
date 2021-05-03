@@ -1,37 +1,37 @@
 .content-box {
-    position: relative;
-    width: 85%;
-    height: 100%;
-    top: 64px;
-    left: 160px;
+  position: relative;
+  width: 85%;
+  height: 100%;
+  top: 64px;
+  left: 160px;
 }
 
 .card {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    width: inherit;
-    height: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: inherit;
+  height: 152px;
 
-    margin: 16px 0 0 16px;
-    border: 1px solid black;
-    overflow: hidden;
+  margin: 16px 0 0 16px;
+  border: 1px solid black;
+  overflow: hidden;
 }
 
 .card img {
-    width: 136px;
-    height: 136px;
-    margin: 0 0 0 8px;
+  width: 136px;
+  height: 136px;
+  margin: 0 0 0 8px;
 }
 
 .info {
-    width: 100%;
-    max-height: 152px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  max-height: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    margin: 0 0 0 16px;
+  margin: 0 0 0 16px;
 }
 
 /* .text {
@@ -51,6 +51,6 @@
 } */
 
 .play {
-    font-size: 48px;
-    margin: 0 32px 0 0;
+  font-size: 48px;
+  margin: 0 32px 0 0;
 }
