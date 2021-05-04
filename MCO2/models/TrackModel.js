@@ -7,7 +7,7 @@ const TrackSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    username: {
+    artist: {
       type: String,
       required: true
     },
