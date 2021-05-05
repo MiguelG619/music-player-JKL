@@ -18,11 +18,20 @@ const searchArtistsController = {
   },
 
   getOneArtist: function (req, res) {
-    User.findOne({ title: req.query.search }, (err, result) => {
-      res.render("/profileInfo?username" + username, { tracks: result });
+    console.log(req.query.search);
+    User.findOne({ username: req.query.search }, (err, result) => {
+      if (result) {
+        console.log(result);
+        res.render("searchArtist", { artist: result });
+      }
+      else {
+        res.status(404).json({
+        message: "Artist not found"
+      });
+      }
     }).catch((err) => {
       res.status(404).json({
-        message: "Error",
+        message: "Error"
       });
     });
   },

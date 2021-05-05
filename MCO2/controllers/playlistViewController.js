@@ -1,51 +1,55 @@
 const User = require("../models/UserModel.js");
 const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
+
+
 const playlistViewController = {
-  
   getAllPlaylists: function (req, res) {
     Playlist.find({ username: req.session.user.username })
       .sort({ createdAt: -1 })
-      .then((result) => {
+      .then(result => {
         // tracks must be in hbs (tracks.title, tracks.image, etc.)
-        res.render("playlistView", { track: result });
+        res.render("playlistView", { playlist: result });
       })
-      .catch((err) => {
+      .catch(err => {
         res.status(404).json({
           message: "Error",
         });
       });
   },
 
-
   postPlaylist: function (req, res) {
     const newTracksArray = [];
     const playlistName = req.body.playlistName;
-    Playlist.findOne({playlistName: playlistName})
-    .exec().then(track => {
-      if (track) {
-         res.status(409).json({
+    Playlist.findOne({ playlistName: playlistName })
+      .exec()
+      .then(track => {
+        if (track) {
+          res.status(409).json({
             message: "Playlist already exists",
           });
-      }
-      else {
-        const newPlaylist = new Playlist({
-      username: req.session.user.username,
-      playlistName: req.body.playlistName,
-      tracks: newTracksArray,
-    });
-        newPlaylist.save().then(result => {
-          res.redirect("/playlistView");
-        })
-        .catch((err) => {
+        } else {
+          const newPlaylist = new Playlist({
+            username: req.session.user.username,
+            playlistName: req.body.playlistName,
+            tracks: newTracksArray,
+          });
+          newPlaylist
+            .save()
+            .then(result => {
+              res.redirect("/playlistView");
+            })
+            .catch(err => {
               console.log(err);
               res.status(500).json({
-                error: err
+                error: err,
               });
             });
-      }
-    });
+        }
+      });
   },
+
+  
 };
 
 module.exports = playlistViewController;

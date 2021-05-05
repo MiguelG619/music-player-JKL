@@ -21,11 +21,20 @@ const searchTracksController = {
   },
 
   getOneTrack: function (req, res) {
+    console.log(req.query.search);
     Track.findOne({ title: req.query.search }, (err, result) => {
-      res.render("searchTracks", { track: result });
+      if (result) {
+        console.log(result);
+        res.render("searchTracks", { track: result });
+      }
+      else {
+        res.status(404).json({
+        message: "Track not found"
+      });
+      }
     }).catch((err) => {
       res.status(404).json({
-        message: "Error",
+        message: "Error"
       });
     });
   },

@@ -36,6 +36,37 @@ const playlistEditController = {
         });
       });
   },
+
+  removeTrackfromPlaylist: function (req, res) {
+    const username = req.session.user.username;
+    Playlist.findOne({ username: username }).exec().then(result => {
+        if (result) {
+          Playlist.updateOne(
+            { username: username },
+            { $pull: { tracks: { url: req.body.track.url } } }
+          )
+            .then(
+              res.status(200).json({
+                message: "Track removed from playlist",
+              })
+            )
+            .catch((err) => {
+              console.log(err);
+              res.status(500).json({
+                error: err,
+              });
+            });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+          error: err,
+        });
+      });
+  },
+
+
 };
 
 module.exports = playlistEditController;

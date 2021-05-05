@@ -29,7 +29,6 @@ const loginController = {
                 .then((result) => {
                   console.log(result);
                   // tracks must be in hbs (tracks.title, tracks.image, etc.)
-                  console.log(req.session.user);
                   res.render("searchTracks", { track: result });
                   
                 })
