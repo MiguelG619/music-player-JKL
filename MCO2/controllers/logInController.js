@@ -4,7 +4,6 @@ const Track = require("../models/TrackModel.js");
 
 const loginController = {
   getLogIn: function (req, res) {
-
     res.render("index");
     // }
   },
@@ -30,7 +29,6 @@ const loginController = {
                   console.log(result);
                   // tracks must be in hbs (tracks.title, tracks.image, etc.)
                   res.render("searchTracks", { track: result });
-                  
                 })
                 .catch((err) => {
                   res.status(404).json({

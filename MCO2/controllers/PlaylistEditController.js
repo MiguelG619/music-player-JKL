@@ -4,12 +4,12 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const playlistEditController = {
-
   updatePlaylist: function (req, res) {
     Playlist.findOneAndUpdate(
-      { username: req.session.user.username},
-      { playlistName: req.body.playlistName,
-        description: req.body.description 
+      { username: req.session.user.username },
+      {
+        playlistName: req.body.playlistName,
+        description: req.body.description,
       },
       { new: true }
     )
@@ -39,7 +39,9 @@ const playlistEditController = {
 
   removeTrackfromPlaylist: function (req, res) {
     const username = req.session.user.username;
-    Playlist.findOne({ username: username }).exec().then(result => {
+    Playlist.findOne({ username: username })
+      .exec()
+      .then((result) => {
         if (result) {
           Playlist.updateOne(
             { username: username },
@@ -65,8 +67,6 @@ const playlistEditController = {
         });
       });
   },
-
-
 };
 
 module.exports = playlistEditController;

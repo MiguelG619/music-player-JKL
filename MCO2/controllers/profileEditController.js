@@ -2,7 +2,6 @@ const User = require("../models/UserModel.js");
 const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 const profileEditController = {
-
   updateProfile: function (req, res) {
     const username = req.session.user.username;
     User.findOneAndUpdate(
@@ -54,4 +53,3 @@ const profileEditController = {
 };
 
 module.exports = profileEditController;
-

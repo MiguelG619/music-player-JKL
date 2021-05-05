@@ -1,8 +1,6 @@
-
 const User = require("../models/UserModel.js");
 
 const searchArtistsController = {
-  
   getAllArtists: function (req, res) {
     User.find()
       .sort({ createdAt: -1 })
@@ -23,15 +21,14 @@ const searchArtistsController = {
       if (result) {
         console.log(result);
         res.render("searchArtist", { artist: result });
-      }
-      else {
+      } else {
         res.status(404).json({
-        message: "Artist not found"
-      });
+          message: "Artist not found",
+        });
       }
     }).catch((err) => {
       res.status(404).json({
-        message: "Error"
+        message: "Error",
       });
     });
   },

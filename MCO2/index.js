@@ -2,16 +2,13 @@ const express = require("express");
 // const cookieParser = require("cookie-parser");
 const hbs = require("hbs");
 const searchRoutes = require("./routes/searchRoutes");
-const session = require('express-session');
+const session = require("express-session");
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const trackRoutes = require("./routes/trackRoutes");
 const playlistRoutes = require("./routes/playlistRoutes");
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
-
-
-
+const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo")(session);
 
 // import module `routes` from `./routes/routes.js`
 // const userRoutes = require('./routes/signUpController.js');
@@ -36,17 +33,18 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('public'));
-
+app.use(express.static("public"));
 
 // use `express-session`` middleware and set its options
 // use `MongoStore` as server-side session storage
-app.use(session({
-    'secret': 'ccapdev-session',
-    'resave': false,
-    'saveUninitialized': false,
-    store: new MongoStore({mongooseConnection: mongoose.connection})
-}));	
+app.use(
+  session({
+    secret: "ccapdev-session",
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
 
 app.use(authRoutes);
 app.use(profileRoutes);

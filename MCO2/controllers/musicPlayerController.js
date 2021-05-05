@@ -1,4 +1,3 @@
-
 const User = require("../models/UserModel.js");
 
 // import Playlist module
@@ -7,7 +6,6 @@ const Playlist = require("../models/PlaylistModel.js");
 const Track = require("../models/TrackModel.js");
 
 const musicPlayerController = {
-  
   getTrack: function (req, res) {
     const id = req.params.id;
     Track.findById(id)
@@ -37,22 +35,20 @@ const musicPlayerController = {
       }
     )
       .exec()
-      .then(result => {
+      .then((result) => {
         if (result) {
           res.status(200).json({
             message: "Playlist updated",
           });
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
           error: err,
         });
       });
-  }
-
-
+  },
 };
 
 module.exports = musicPlayerController;

@@ -1,10 +1,8 @@
-
 const User = require("../models/UserModel.js");
 
 const Track = require("../models/TrackModel.js");
 
 const searchTracksController = {
-  
   getAllTracks: function (req, res) {
     Track.find()
       .sort({ createdAt: -1 })
@@ -26,15 +24,14 @@ const searchTracksController = {
       if (result) {
         console.log(result);
         res.render("searchTracks", { track: result });
-      }
-      else {
+      } else {
         res.status(404).json({
-        message: "Track not found"
-      });
+          message: "Track not found",
+        });
       }
     }).catch((err) => {
       res.status(404).json({
-        message: "Error"
+        message: "Error",
       });
     });
   },
