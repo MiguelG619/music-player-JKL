@@ -27,7 +27,6 @@ const loginController = {
               Track.find()
                 .then((result) => {
                   console.log(result);
-                  // tracks must be in hbs (tracks.title, tracks.image, etc.)
                   res.render("searchTracks", { track: result });
                 })
                 .catch((err) => {
@@ -35,7 +34,6 @@ const loginController = {
                     message: "Error",
                   });
                 });
-              // res.render("searchTracks", { user: req.session.user });
             }
           });
         } else {

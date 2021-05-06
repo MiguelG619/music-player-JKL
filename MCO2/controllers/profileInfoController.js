@@ -6,7 +6,7 @@ const profileInfoController = {
   getPersonalInfo: function (req, res) {
     const username = req.session.user.username;
     User.findOne({ username: username }, (err, result) => {
-      res.render("profileInfo", { artist: result });
+      res.render("profInfo", { profile: result });
     }).catch((err) => {
       res.status(404).json({
         message: "Error",
@@ -18,7 +18,7 @@ const profileInfoController = {
     const id = req.params.id;
     User.findById(id)
       .then((result) => {
-        render("/profileInfo", { artist: result });
+        res.render("profInfo", { profile: result });
       })
       .catch((err) => {
         res.status(500).json({
