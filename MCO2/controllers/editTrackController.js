@@ -5,11 +5,26 @@ const Playlist = require("../models/PlaylistModel.js");
 const Track = require("../models/TrackModel.js");
 
 const editTracksController = {
+
+  getEditTrack: function (req, res) {
+    res.render('trackUploadEdit');
+  },
+
+  // must be patch method
   updateTrack: function (req, res) {
     const id = req.params.id;
-    Track.findOneAndUpdate(
+    // title vs Title depends on hbs
+    Track.findOne({title: req.body.title}).exec().then(track =>{
+      if (track) {
+        res.status(409).json({
+            message: "Track already exists. Please enter a new one",
+          });
+      }
+      else {
+        Track.findByIdAndUpdate(
       { id },
       {
+        // req.body.Title vs title
         title: req.body.title,
         description: req.body.description,
         url: req.body.url,
@@ -26,6 +41,14 @@ const editTracksController = {
           error: err,
         });
       });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+            res.status(500).json({
+              error: err,
+            });
+          });
   },
 
   deleteTrack: function (req, res) {

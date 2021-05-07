@@ -62,7 +62,7 @@ const loginController = {
                 redirects the client to `/profile` using HTTP GET,
                 defined in `../routes/routes.js`
             */
-      res.redirect("/login");
+      res.redirect("/index");
     });
   },
 };

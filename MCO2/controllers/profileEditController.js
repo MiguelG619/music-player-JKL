@@ -2,7 +2,10 @@ const User = require("../models/UserModel.js");
 const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 const profileEditController = {
-  
+  getProfileEdit: function (req, res) {
+    res.render("profInfoEdit");
+  },
+
   updateProfile: function (req, res) {
     const username = req.session.user.username;
     User.findOneAndUpdate(
@@ -31,7 +34,10 @@ const profileEditController = {
             User.deleteMany({ username: username })
               .then((result) => {
                 console.log(success);
-                res.redirect("/index");
+                req.session.destroy((err) => {
+                  if (err) throw err;
+                  res.redirect("/index");
+                });
               })
               .catch((err) => {
                 res.status(500).json({

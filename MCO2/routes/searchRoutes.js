@@ -6,6 +6,6 @@ const router = express.Router();
 router.get("/searchTracks", searchTracksController.getAllTracks);
 router.get("/searchOneTrack", searchTracksController.getOneTrack);
 router.get("/searchArtists", searchArtistsController.getAllArtists);
-router.get("/searchArtists/search", searchArtistsController.getOneArtist);
+router.get("/searchOneArtists", searchArtistsController.getOneArtist);
 
 module.exports = router;

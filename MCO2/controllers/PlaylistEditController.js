@@ -4,6 +4,11 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const playlistEditController = {
+
+  getPlaylistEdit: function (req, res) {
+    res.render('profPlaylistEdit');
+  },
+
   updatePlaylist: function (req, res) {
     Playlist.findOneAndUpdate(
       { username: req.session.user.username },

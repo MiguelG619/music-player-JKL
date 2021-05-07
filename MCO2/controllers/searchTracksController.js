@@ -3,6 +3,7 @@ const User = require("../models/UserModel.js");
 const Track = require("../models/TrackModel.js");
 
 const searchTracksController = {
+  
   getAllTracks: function (req, res) {
     Track.find()
       .sort({ createdAt: -1 })
@@ -20,7 +21,7 @@ const searchTracksController = {
 
   getOneTrack: function (req, res) {
     console.log(req.query.search);
-    Track.findOne({ title: req.query.search }, (err, result) => {
+    Track.findOne({  title: { $regex: req.query.search, $options: "i" } }, (err, result) => {
       if (result) {
         console.log(result);
         res.render("searchTracks", { track: result });

@@ -3,12 +3,14 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const playlistViewController = {
+
   getAllPlaylists: function (req, res) {
     Playlist.find({ username: req.session.user.username })
       .sort({ createdAt: -1 })
       .then((result) => {
+        console.log(result);
         // tracks must be in hbs (tracks.title, tracks.image, etc.)
-        res.render("playlistView", { playlist: result });
+        res.render("profPlaylist", { playlist: result });
       })
       .catch((err) => {
         res.status(404).json({
@@ -47,6 +49,24 @@ const playlistViewController = {
         }
       });
   },
+
+  getTracksPlaylist: function (req, res) {
+   const id = req.params.id;
+    Playlist.findById(id)
+      .sort({ createdAt: -1 })
+      .then((result) => {
+        // tracks must be in hbs (tracks.title, tracks.image, etc.)
+        // saang page ilalagay yung tracks na nasa playlist?
+        // edi dapat may if sa hbr kung playlist o tracks
+        res.render("", { track: result });
+        console.log(result);
+      })
+      .catch((err) => {
+        res.status(404).json({
+          message: "Error",
+        });
+      });
+  }
 };
 
 module.exports = playlistViewController;
