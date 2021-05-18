@@ -1,4 +1,3 @@
-
 const User = require("../models/UserModel.js");
 const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
@@ -6,9 +5,10 @@ const Playlist = require("../models/PlaylistModel.js");
 const profileInfoController = {
 
   getPersonalInfo: function (req, res) {
-      const username = req.session.user.username;
+    const username = req.session.user.username;
     User.findOne({ username: username }, (err, result) => {
-      res.render("/searchTracks?username" + username, { artist: result });
+      console.log(result);
+      res.render("profInfo", { profile: result });
     }).catch((err) => {
       res.status(404).json({
         message: "Error",
@@ -20,7 +20,7 @@ const profileInfoController = {
     const id = req.params.id;
     User.findById(id)
       .then((result) => {
-        render("/profileInfo", { artist: result });
+        res.render("profInfo", { profile: result });
       })
       .catch((err) => {
         res.status(500).json({

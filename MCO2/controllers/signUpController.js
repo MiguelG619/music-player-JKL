@@ -3,8 +3,6 @@ const Playlist = require("../models/PlaylistModel.js");
 const bcrypt = require("bcrypt");
 
 const signUpController = {
-
-
   getSignUp: function (req, res) {
     res.render("register");
   },
@@ -50,13 +48,13 @@ const signUpController = {
                   const playlist = new Playlist({
                     username: username,
                     playlistName: username + " Tracks",
-                    tracks: tracksArray
+                    tracks: tracksArray,
                   });
                   // saves the playlist
                   playlist
                     .save()
                     .then(function (result) {
-                      res.render('index');                     
+                      res.render("index");
                     })
                     .catch(function (err) {
                       console.log(err);

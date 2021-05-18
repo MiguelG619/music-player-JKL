@@ -1,4 +1,3 @@
-
 const User = require("../models/UserModel.js");
 
 const Track = require("../models/TrackModel.js");
@@ -21,8 +20,16 @@ const searchTracksController = {
   },
 
   getOneTrack: function (req, res) {
-    Track.findOne({ title: req.query.search }, (err, result) => {
-      res.render("searchTracks", { track: result });
+    console.log(req.query.search);
+    Track.findOne({  title: { $regex: req.query.search, $options: "i" } }, (err, result) => {
+      if (result) {
+        console.log(result);
+        res.render("searchTracks", { track: result });
+      } else {
+        res.status(404).json({
+          message: "Track not found",
+        });
+      }
     }).catch((err) => {
       res.status(404).json({
         message: "Error",

@@ -4,7 +4,6 @@ const Track = require("../models/TrackModel.js");
 
 const loginController = {
   getLogIn: function (req, res) {
-
     res.render("index");
     // }
   },
@@ -28,17 +27,13 @@ const loginController = {
               Track.find()
                 .then((result) => {
                   console.log(result);
-                  // tracks must be in hbs (tracks.title, tracks.image, etc.)
-                  console.log(req.session.user);
                   res.render("searchTracks", { track: result });
-                  
                 })
                 .catch((err) => {
                   res.status(404).json({
                     message: "Error",
                   });
                 });
-              // res.render("searchTracks", { user: req.session.user });
             }
           });
         } else {
@@ -67,7 +62,7 @@ const loginController = {
                 redirects the client to `/profile` using HTTP GET,
                 defined in `../routes/routes.js`
             */
-      res.redirect("/login");
+      res.redirect("/index");
     });
   },
 };
