@@ -7,7 +7,8 @@ const Track = require("../models/TrackModel.js");
 
 const musicPlayerController = {
   getTrack: function (req, res) {
-    res.render('searchTracks');
+    const id = req.params.id;
+    res.render('index');
   },
 
   addTrackToPlaylist: function (req, res) {

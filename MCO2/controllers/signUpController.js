@@ -10,6 +10,7 @@ const signUpController = {
   // creates a user account
   postSignUp: function (req, res) {
     const username = req.body.Username;
+    const realName = req.body.Realname;
     const password = req.body.Password;
     // Checks if the username exists
     // Else create a new user model
@@ -37,6 +38,7 @@ const signUpController = {
             else {
               const user = new User({
                 username: username,
+                realName: realName,
                 password: hash,
               });
               // Creates the playlist for the user

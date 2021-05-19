@@ -7,7 +7,7 @@ const searchArtistsController = {
       .sort({ createdAt: -1 })
       .then((result) => {
         // tracks must be in hbs (tracks.title, tracks.image, etc.)
-        res.render("searchArtist", { artist: result });
+        res.render("searchArtists", { artist: result });
       })
       .catch((err) => {
         res.status(404).json({

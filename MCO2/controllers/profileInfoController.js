@@ -7,8 +7,7 @@ const profileInfoController = {
   getPersonalInfo: function (req, res) {
     const username = req.session.user.username;
     User.findOne({ username: username }, (err, result) => {
-      console.log(result);
-      res.render('profInfo', { profile: result });
+      res.render('profInfo', {profile: result});
     }).catch((err) => {
       res.status(404).json({
         message: "Error",
@@ -19,14 +18,12 @@ const profileInfoController = {
   getOtherProfile: function (req, res) {
     const id = req.params.id;
     User.findById(id)
-      .then((result) => {
-        res.render("profInfo", { profile: result });
-      })
-      .catch((err) => {
-        res.status(500).json({
-          message: "Error",
-        });
-      });
+    .then(result => {
+      res.render('otherProfile', {profile: result});
+    })
+    .catch(err => {
+      console.log(err);
+    });
   },
 };
 
