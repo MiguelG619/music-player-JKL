@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account Form</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist</title>
+
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/header.css">
-</head>
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/search.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 <body>
 <!-- Header -->
     <header class="sticky">
@@ -24,5 +33,40 @@
         </div>
     </header>
 <!-- End of Header -->
+    <div class="below-header">
+    <!-- Sidebar -->
+        <div class="sidebar sticky">
+            <nav>
+                <a href="profInfo.html"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a><br>
+                <a href="profPlaylist.html"><i class="fa fa-music" aria-hidden="true"></i> Tracks</a>
+            </nav>
+
+            <div class="contact-box">
+                <h3>Contacts:</h3>
+                <a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+                <a href="https://www.twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+            </div>
+        </div>
+    <!-- End of Sidebar -->
+
+    <!-- Playlist View -->
+        <!-- Cover Photo, Artist, Playlist Name, No. of Tracks -->
+        <div class="content-box">
+            {{#each playlist}}
+            <div class="card shadow curvy">
+                <img class="cover" src="images/blackpink-cover.jpg">
+                <div class="info">
+                    <div class="text">
+                        <h2>{{playlistName}}</h2>
+                    </div>
+                    <a href="musicPlayer.html" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    <!-- End of Playlist View -->
+    </div>
+
 </body>
 </html>

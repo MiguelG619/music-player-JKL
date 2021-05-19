@@ -8,7 +8,7 @@ const profileInfoController = {
     const username = req.session.user.username;
     User.findOne({ username: username }, (err, result) => {
       console.log(result);
-      res.render("profInfo", { profile: result });
+      res.render('profInfo', { profile: result });
     }).catch((err) => {
       res.status(404).json({
         message: "Error",

@@ -31,7 +31,7 @@ router.get("/searchArtists", searchArtistsController.getAllArtists);
 router.get("/searchOneArtists", searchArtistsController.getOneArtist);
 
 // profile
-router.get("/profileInfo", profileInfoController.getPersonalInfo);
+router.get("/profInfo", profileInfoController.getPersonalInfo);
 /*To get the id of a different user in hbs
  	{{#each profile}}  
   		<a href=/profileInfo/{{this._id}}>
@@ -39,13 +39,14 @@ router.get("/profileInfo", profileInfoController.getPersonalInfo);
     {{/each}}
 	
 */
-router.get("/profileInfo/:id", profileInfoController.getOtherProfile);
-router.get("/profileInfo/edit", profileEditController.getProfileEdit);
-router.patch("/profileInfo/edit", profileEditController.updateProfile);
+router.get("/profInfo/:id", profileInfoController.getOtherProfile);
+router.get("/profInfo/edit", profileEditController.getProfileEdit);
+router.patch("/profInfo/edit", profileEditController.updateProfile);
 router.delete("/editTrack/delete", profileEditController.deleteUser);
 
 //muscisPlayer/Tracks
-router.get("/musicPlayer/:id", musicPlayerController.getTrack);
+router.get("/musicPlayer", musicPlayerController.getTrack);
+// router.get("/musicPlayer/:id", musicPlayerController.getTrack);
 router.get("/upload", uploadTrackController.getUpload);
 router.post("/upload", uploadTrackController.postTrack);
 // <a href="editTrack/{{this._id}}</a> gawing anchr tag yung title ng track

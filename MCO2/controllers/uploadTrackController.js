@@ -24,7 +24,6 @@ const uploadTrackController = {
             image: "a",
             description: req.body.Description,
             url: req.body.URL,
-            duration: "5",
           });
           track
             .save()
