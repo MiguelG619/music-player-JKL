@@ -4,9 +4,8 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const playlistEditController = {
-
   getPlaylistEdit: function (req, res) {
-    res.render('profPlaylistEdit');
+    res.render("profPlaylistEdit");
   },
 
   updatePlaylist: function (req, res) {

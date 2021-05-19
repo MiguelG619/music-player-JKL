@@ -3,13 +3,12 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const playlistViewController = {
-
   getAllPlaylists: function (req, res) {
     Playlist.find({ username: req.session.user.username })
       .sort({ createdAt: -1 })
       .then((result) => {
         console.log(result);
-        // tracks must be in hbs (tracks.title, tracks.image, etc.)
+
         res.render("profPlaylist", { playlist: result });
       })
       .catch((err) => {
@@ -51,7 +50,7 @@ const playlistViewController = {
   },
 
   getTracksPlaylist: function (req, res) {
-   const id = req.params.id;
+    const id = req.params.id;
     Playlist.findById(id)
       .sort({ createdAt: -1 })
       .then((result) => {
@@ -66,7 +65,7 @@ const playlistViewController = {
           message: "Error",
         });
       });
-  }
+  },
 };
 
 module.exports = playlistViewController;

@@ -9,12 +9,12 @@ const uploadTrackController = {
 
   postTrack: function (req, res) {
     const username = req.session.user.username;
-    // Checks to see if the track is already uploaded
+
     Track.findOne({ title: req.body.Title })
       .exec()
       .then((track) => {
         if (track) {
-          res.render('trackUploadEdit', {message: "Track already exists."});
+          res.render("trackUploadEdit", { message: "Track already exists." });
         } else {
           const track = new Track({
             title: req.body.Title,

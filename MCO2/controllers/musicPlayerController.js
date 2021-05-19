@@ -1,6 +1,5 @@
 const User = require("../models/UserModel.js");
 
-// import Playlist module
 const Playlist = require("../models/PlaylistModel.js");
 
 const Track = require("../models/TrackModel.js");
