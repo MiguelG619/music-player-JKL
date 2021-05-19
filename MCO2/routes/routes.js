@@ -15,12 +15,16 @@ const editTrackController = require("../controllers/editTrackController");
 const playlistViewController = require("../controllers/playlistViewController");
 const playlistEditController = require("../controllers/playlistEditController");
 
+const validation= require('../helpers/validation.js');
+
 const router = express.Router();
 
 // LogIn SignUp LogOut
-router.get("/", logInController.getLogIn);
+router.get("/getCheckUsername", signUpController.getCheckUsername);
 router.get("/signUp", signUpController.getSignUp);
+// router.post("/signUp", validation.signUpValidation(), signUpController.postSignUp);
 router.post("/signUp", signUpController.postSignUp);
+router.get("/", logInController.getLogIn);
 router.post("/logIn", logInController.postLogIn);
 router.get("/logOut", logInController.getLogOut);
 

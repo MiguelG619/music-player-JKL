@@ -14,9 +14,7 @@ const uploadTrackController = {
       .exec()
       .then((track) => {
         if (track) {
-          res.status(409).json({
-            message: "Track already exists",
-          });
+          res.render('trackUploadEdit', {message: "Track already exists."});
         } else {
           const track = new Track({
             title: req.body.Title,
