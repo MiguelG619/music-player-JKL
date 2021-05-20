@@ -8,7 +8,6 @@ const searchTracksController = {
       .sort({ createdAt: -1 })
       .then((result) => {
         res.render("searchTracks", { track: result });
-        console.log(result);
       })
       .catch((err) => {
         res.status(404).json({
@@ -23,7 +22,6 @@ const searchTracksController = {
       { title: { $regex: req.query.search, $options: "i" } },
       (err, result) => {
         if (result) {
-          console.log(result);
           res.render("searchTracks", { track: result });
         } else {
           res.status(404).json({

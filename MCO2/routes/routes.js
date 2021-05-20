@@ -49,8 +49,8 @@ router.patch("/profInfo/edit", profileEditController.updateProfile);
 router.delete("/editTrack/delete", profileEditController.deleteUser);
 
 //muscisPlayer/Tracks
-router.get("/musicPlayer", musicPlayerController.getTrack);
-// router.get("/musicPlayer/:id", musicPlayerController.getTrack);
+// router.get("/musicPlayer", musicPlayerController.getTrack);
+router.get("/musicPlayer/:id", musicPlayerController.getTrack);
 router.get("/upload", uploadTrackController.getUpload);
 router.post("/upload", uploadTrackController.postTrack);
 // <a href="editTrack/{{this._id}}</a> gawing anchr tag yung title ng track
@@ -62,6 +62,7 @@ router.get("/editTrack/delete/:id", editTrackController.deleteTrack);
 
 // playlist
 router.get("/playlistView", playlistViewController.getAllPlaylists);
+router.get("/profInfo/playlist/tracks/:id", playlistViewController.getOnePlaylist);
 router.post("/playlistView/create", playlistViewController.postPlaylist);
 router.get("/playlistView/edit", playlistEditController.getPlaylistEdit);
 router.patch("/playlistView/edit", playlistEditController.updatePlaylist);

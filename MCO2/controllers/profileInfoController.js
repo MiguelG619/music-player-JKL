@@ -17,7 +17,6 @@ const profileInfoController = {
   getOtherProfile: function (req, res) {
     const id = req.params.id;
     User.findById(id)
-      .exec()
       .then((result) => {
         console.log(result);
         res.render("profInfo", { profile: result });
