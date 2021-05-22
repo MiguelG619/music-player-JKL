@@ -5,6 +5,8 @@ const session = require("express-session");
 const routes = require("./routes/routes");
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
+const path = require(`path`);
+
 
 const db = require("./models/db.js");
 
@@ -23,7 +25,7 @@ hbs.registerPartials(__dirname + "/views/partials");
 // parses incoming requests with urlencoded payloads
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // use `express-session`` middleware and set its options
 // use `MongoStore` as server-side session storage
