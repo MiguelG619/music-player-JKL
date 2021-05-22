@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account Form</title>
+    
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header.css">
+	<link rel="stylesheet" href="./css/music-player-style.css">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky">
+        <div class="left">
+            <a href="/searchTracks"><img src="" alt="JKL"></img></a>
+            <input type="text" name="Search Bar" id="search-bar">
+            <input type="submit" action="./searchTracks.html" method="get" value="Search">
+        </div>
+        <div class="right">
+            <a href="/profInfo">Profile</a>
+            <a href="/upload">Upload</a>
+            <a href="/logOut">Log-Out</a>
+        </div>
+    </header>
+    <!-- End of Header -->
+
+	<!-- Track Content -->
+	<div class="container-fluid gainsboro ">
+  		<div class="row vh-100 ">
+
+    		<div class="col-md-9 d-flex flex-column align-items-center ">
+    			<div class="card onyx track-img" style="width: 28rem;">
+				  <img src="images/song.png" class="card-img-top" alt="I can't stop me by Twice">
+
+				  <div class="card-body d-flex flex-column align-items-center">
+
+				    <div class="volume">
+				    	<div class="volume-show">90</div>
+				    	<i class="fa fa-volume-up" aria-hidden="true" id="volume-icon" onclick="mute_sound()"></i>
+				    	<input type="range" min="0" max="100" value="90" id="duration-slider" onchange="volume_change()">
+				    </div>
+
+				    <div class="duration">
+				    	<input type="range" min="0" max="100" value="0" id="duration-slider" onchange="change_duration()">
+				    </div>
+
+				    <div class="track-functions">
+				    	<button onclick="like()" class="left-track-functions" id="playlist"><i class="fas fa-list-music" aria-hidden="true"></i>
+				    	</button>
+				    	<button onclick="justplay()" class="left-track-functions" id="like"><i class="fas fa-thumbs-up" aria-hidden="true"></i>
+				    	</button>
+				    	<button onclick="add_playlist()" id="play">
+				    		<i class="fas fa-play" aria-hidden="true"></i>
+				    	</button>
+				    </div>
+				   </div>
+				</div>
+			</div>
+
+			<!-- Track Info -->
+    		<div class="col-6 col-md-3 my-col">
+    		<h2 class="track-title bg-dark font-lightgrey">I can't stop me</h2>
+    		<h3 class="track-artist bg-dark font-lightgrey"><q>Twice</q></h3>
+    		<h5 class="track-description">
+    			"I Can't Stop Me" (stylized as I CAN'T STOP ME) is the title track of Twice's 2nd full album "Eyes wide open". The title track and music video was released on October 26, 2020. <br> <br>
+				The song expresses the difficulties of control oneself while conflicting over good and evil. <br> <br>
+				by twice.fandom.com
+    		</h5>
+    		<h4 class="num-likes"><i class="fal fa-thumbs-up"></i> 123</h4>
+    		<h4 class="num-listens"><i class="far fa-ear"></i> 999</h4>
+    		<div class="description-tags">
+    			<span><i class="fal fa-tags"></i>:</span>
+    			<span class="tags">kpop</span>
+    		</div>
+    		
+
+ 		</div>
+ 	</div>
+
+</body>
+</html>
