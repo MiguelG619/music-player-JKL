@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account Form</title>
+    
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/search.css">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<body>
+<!-- Header -->
+    <header class="sticky">
+        <div class="left">
+            <a href="searchTracks.html"><img src="" alt="JKL"></img></a>
+            <input type="text" name="Search Bar" id="search-bar">
+            <input type="submit" action="./searchTracks.html" method="get" value="Search">
+        </div>
+        <div class="right">
+            <a href="profInfo.html">Profile</a>
+            <a href="trackUploadEdit.html">Upload</a>
+            <a href="index.html">Log-Out</a>
+        </div>
+    </header>
+<!-- End of Header -->
+ 
+<!-- Page Content -->
+    <div class="below-header">
+    <!-- Sidebar -->
+        <div class="sidebar sticky">
+            <nav>
+                <a href="searchTracks.html"><i class="fa fa-music" aria-hidden="true"></i> Tracks</a><br>
+                <a href="searchArtists.html"><i class="fa fa-microphone" aria-hidden="true"></i> Artists</a>
+            </nav>
+
+            <div class="filter-box">
+                <div class="filter">Alphabetical</div>
+                <div class="filter">Most Listens</div>
+                <div class="filter">Recently Added</div>
+            </div>
+        </div>
+    <!-- End of Sidebar -->
+
+    <!-- Artist List -->
+        <div class="content-box">
+            <div class="card shadow curvy">
+                <img class="cover" src="images/blackpink-cover.jpg">
+                <div class="info">
+                    <div class="text">
+                        <h3>Artist's Real Name</h3>
+                        <h2>Stage Name</h2>
+                        <p>Description: Lorem, ipsum dolor sio provident lectus sint laboriosam pariatur maxime veritatis impedit perspiciatis minima, fuga, aliquam eius tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                    </div>
+                    <a href="musicPlayer.html" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    <!-- End of Artist List -->
+    </div>
+<!-- End of Page Content -->
+</body>
+</html>
