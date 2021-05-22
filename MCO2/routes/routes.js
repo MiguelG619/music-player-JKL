@@ -43,7 +43,7 @@ router.get("/profInfo", profileInfoController.getPersonalInfo);
     {{/each}}
 	
 */
-router.get("/profInfo/:id", profileInfoController.getOtherProfile);
+router.get("/profInfo/:username", profileInfoController.getOtherProfile);
 router.get("/profInfo/edit", profileEditController.getProfileEdit);
 router.patch("/profInfo/edit", profileEditController.updateProfile);
 router.delete("/editTrack/delete", profileEditController.deleteUser);
