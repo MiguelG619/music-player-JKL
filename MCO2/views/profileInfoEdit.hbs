@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account Form</title>
     
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/editUpload.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/editUpload.css">
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -17,39 +17,24 @@
 </head>
 <body>
 <!-- Header -->
-    <header class="sticky">
-        <div class="left">
-            <a href="searchTracks.html"><img src="" alt="JKL"></img></a>
-            <input type="text" name="Search Bar" id="search-bar">
-            <input type="submit" action="./searchTracks.html" method="get" value="Search">
-        </div>
-        <div class="right">
-            <a href="profInfo.html">Profile</a>
-            <a href="trackUploadEdit.html">Upload</a>
-            <a href="index.html">Log-Out</a>
-        </div>
-    </header>
+       {{> header}}
 <!-- End of Header -->
+
 <!-- My Update Form -->
     <div class="below-header">
         <div class="edit">
-            <form class="shadow curvy" action="./searchTracks.html" method="get">
-                <h1>Edit Your Account</h1>
+            <form class="shadow curvy" action="/profile/edit" method="POST">
+                <h1>Edit Your Account Description</h1>
                 <div class="txt-box">
-                    <input type="text" name="Username" placeholder="Username">
+                    <input type="text" name="Username" placeholder="{{profile.username}}" readonly>
                 </div>
                 <div class="txt-box">
-                    <input type="password" name="Password" placeholder="Change Password">
-                </div>
-                <div class="txt-box">
-                    <input type="password" name="Confirm" placeholder="Confirm Password">
-                </div>
-                <div class="txt-box">
-                    <input type="textarea" name="Description" placeholder="Description">
+                    <input type="textarea" name="Description" placeholder="{{profile.description}}">
                 </div>
         
-                <input type="submit" method="post" value="Update">
+                <input type="submit"  value="Update">
             </form>
+            <a href="/profile/delete" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
         </div>
     </div>
 <!-- End of My Update Form -->

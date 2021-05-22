@@ -7,13 +7,17 @@ const Track = require("../models/TrackModel.js");
 const musicPlayerController = {
   getTrack: function (req, res) {
     const id = req.params.id;
+    console.log(id);
     Track.findById(id)
-      .then((result) => {
-        render("musicPlayer", { track: result });
-      })
-      .catch((err) => {
-        console.log(err);
+    .then(result => {
+      console.log("accessed");
+      res.render('musicPlayer', {track: result, });
+    })
+    .catch(err => {
+      res.status(404).json({
+        message: "Error"
       });
+    });
   },
 
   addTrackToPlaylist: function (req, res) {

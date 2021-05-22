@@ -19,11 +19,7 @@ const UserSchema = new mongoose.Schema(
       required: [true, "Password field is required"],
       minlength: [6, "Minimum length of password is 6"],
     },
-    picture: {
-      type: String,
-    },
-    
-    desc: {
+    description: {
       type: String,
     },
     // ARRAY

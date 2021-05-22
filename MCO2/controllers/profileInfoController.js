@@ -7,6 +7,7 @@ const profileInfoController = {
     const username = req.session.user.username;
     User.findOne({ username: username })
     .then(result => {
+      console.log(result);
       res.render('profInfo', {profile: result});
     })
     .catch(err => {
@@ -14,26 +15,21 @@ const profileInfoController = {
         message: "Error",
       });
     });
-    // User.findOne({ username: username }, (err, result) => {
-    //   res.render("profInfo", { profile: result });
-    // }).catch((err) => {
-    //   res.status(404).json({
-    //     message: "Error",
-    //   });
-    // });
+    
   },
 
   getOtherProfile: function (req, res) {
     const username = req.params.username;
-    User.findOne({username: username}, (err, result) => {
-      console.log(result);
-      // res.render('trackUploadEdit');
-      res.render('profInfo', {profile: result});
+    User.findOne({username: username})
+    .then(result => {
+      console.log("accessed");
+      res.render('profInfo', {profile: result, });
     })
     .catch(err => {
-      res.send(err);
+      res.status(404).json({
+        message: "Error"
+      });
     });
-
   },
 };
 

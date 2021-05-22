@@ -1,61 +1,38 @@
 const User = require("../models/UserModel.js");
+const bcrypt = require("bcrypt");
 const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
+
 const profileEditController = {
   getProfileEdit: function (req, res) {
-    res.render("profInfoEdit");
+    res.render("profileInfoEdit", {profile: req.session.user});
   },
 
   updateProfile: function (req, res) {
+    const description = req.body.Description;
+
     const username = req.session.user.username;
-    User.findOneAndUpdate(
-      { username: username },
-      { description: req.body.description },
-      { new: true }
-    )
-      .then((result) => {
-        res.redirect("/profInfo");
-      })
-      .catch((err) => {
-        res.status(500).json({
-          message: "Error",
+  
+        User.findOneAndUpdate({username: username}, {description: description}, {new: true}, (err, result) => {
+          if (err)
+            console.log(err);
+          else {
+            res.redirect('/profInfo');
+          }
         });
-      });
+        
+    
   },
 
   deleteUser: function (req, res) {
-    const username = req.session.user.username;
-    Track.deleteMany({ artist: username })
-      .then((result) => {
-        console.log("success");
-        Playlist.deleteMany({ username: username })
-          .then((result) => {
-            console.log(success);
-            User.deleteMany({ username: username })
-              .then((result) => {
-                console.log(success);
-                req.session.destroy((err) => {
-                  if (err) throw err;
-                  res.redirect("/index");
-                });
-              })
-              .catch((err) => {
-                res.status(500).json({
-                  message: "Error",
-                });
-              });
-          })
-          .catch((err) => {
-            res.status(500).json({
-              message: "Error",
-            });
-          });
-      })
-      .catch((err) => {
-        res.status(500).json({
-          message: "Error",
-        });
-      });
+    const id = req.session.user._id;
+    console.log(id);
+    User.findByIdAndRemove(id,  (err, doc) => {
+        if (!err) {
+            res.render('index');
+        }
+        else { console.log(err); }
+    });
   },
 };
 
