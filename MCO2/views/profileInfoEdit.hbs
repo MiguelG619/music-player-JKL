@@ -17,24 +17,39 @@
 </head>
 <body>
 <!-- Header -->
-       {{> header}}
+    <header class="sticky">
+        <div class="left">
+            <a href="searchTracks.html"><img src="" alt="JKL"></img></a>
+            <input type="text" name="Search Bar" id="search-bar">
+            <input type="submit" action="./searchTracks.html" method="get" value="Search">
+        </div>
+        <div class="right">
+            <a href="profInfo.html">Profile</a>
+            <a href="trackUploadEdit.html">Upload</a>
+            <a href="index.html">Log-Out</a>
+        </div>
+    </header>
 <!-- End of Header -->
-
 <!-- My Update Form -->
     <div class="below-header">
         <div class="edit">
-            <form class="shadow curvy" action="/profile/edit" method="POST">
-                <h1>Edit Your Account Description</h1>
+            <form class="shadow curvy" action="./searchTracks.html" method="get">
+                <h1>Edit Your Account</h1>
                 <div class="txt-box">
-                    <input type="text" name="Username" placeholder="{{profile.username}}" readonly>
+                    <input type="text" name="Username" placeholder="Username">
                 </div>
                 <div class="txt-box">
-                    <input type="textarea" name="Description" placeholder="{{profile.description}}">
+                    <input type="password" name="Password" placeholder="Change Password">
+                </div>
+                <div class="txt-box">
+                    <input type="password" name="Confirm" placeholder="Confirm Password">
+                </div>
+                <div class="txt-box">
+                    <input type="textarea" name="Description" placeholder="Description">
                 </div>
         
-                <input type="submit"  value="Update">
+                <input type="submit" method="post" value="Update">
             </form>
-            <a href="/profile/delete" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
         </div>
     </div>
 <!-- End of My Update Form -->
