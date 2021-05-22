@@ -32,7 +32,7 @@ Connected to db
 6. Let's test our web application. Go to the link below to access the web application:
 ```
 http://localhost:3000/
-
+```
 
 
 ## Authors
