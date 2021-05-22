@@ -21,7 +21,7 @@
 <body>
     {{> header}}
     <div class="below-header">
-     {{> sidebarProfile}}
+    {{> sidebarProfile}}
     
 <!--  
     username
@@ -41,23 +41,25 @@
                     <div class="text">
                         <h3>{{profile.realName}}</h3>
                         <h2>{{profile.username}}</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat tenetur quasi odit et dolorum assumenda in a sequi quam nobis dolorem incidunt delectus necessitatibus maiores expedita, consequuntur voluptatem maxime nam!
-                        Enim amet optio quae quasi nostrum corporis laboriosam vel, quo tenetur magnam! Doloremque, in! Voluptate dolorem laboriosam, dignissimos eius nisi facere voluptas, explicabo libero perferendis illum aliquam quis sequi impedit?</p>
+                        <p>{{profile.description}}</p>
+                        <a href="/profile/edit" class="play"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
 
-            {{!--  --}}
-            <div class="card shadow curvy">
-                <img class="cover" src="images/blackpink-cover.jpg">
-                <div class="info">
-                    <div class="text">
-                        <h3>Artist Name</h3>
-                        <h2>Track Title</h2>
+            <!-- {{!--  --}} -->
+            {{#each profile.track}}
+                <div class="card shadow curvy">
+                    <img class="cover" src="images/blackpink-cover.jpg">
+                    <div class="info">
+                        <div class="text">
+                            <h3>{{this.artist}}</h3>
+                            <h2>{{this.title}}</h2>
+                        </div>
+                        <a href="/musicPlayer/{{this._id}}" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
                     </div>
-                    <a href="musicPlayer.html" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
                 </div>
-            </div>
+             {{/each}}
         </div>
     <!-- End of Profile Info -->
     </div> 

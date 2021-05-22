@@ -53,11 +53,11 @@ router.get("/profInfo", profileInfoController.getPersonalInfo);
 */
 router.get("/profInfo/:username", profileInfoController.getOtherProfile);
 
-router.get("/profInfo/edit", profileEditController.getProfileEdit);
+router.get("/profile/edit", profileEditController.getProfileEdit);
 
-router.patch("/profInfo/edit", profileEditController.updateProfile);
+router.post("/profile/edit", profileEditController.updateProfile);
 
-router.delete("/editTrack/delete", profileEditController.deleteUser);
+router.get("/profile/delete", profileEditController.deleteUser);
 
 //muscisPlayer/Tracks
 // router.get("/musicPlayer", musicPlayerController.getTrack);
