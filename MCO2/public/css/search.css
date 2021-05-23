@@ -14,7 +14,8 @@
   height: 152px;
 
   margin: 16px 0 0 16px;
-  border: 1px solid black;
+  border: 1px solid var(--dark);
+  background-color: var(--light);
   overflow: hidden;
 }
 
@@ -53,4 +54,10 @@
 .play {
   font-size: 48px;
   margin: 0 32px 0 0;
+  color: var(--secondary);
+}
+
+.play:hover {
+  transition: 300ms;
+  color: var(--accent);
 }

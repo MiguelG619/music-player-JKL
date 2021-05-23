@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/editUpload.css">
+    <link rel="stylesheet" href="/css/upload.css">
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -21,20 +21,43 @@
 <!-- End of Header -->
 
 <!-- My Update Form -->
-    <div class="below-header">
+    {{!-- <div class="below-header">
         <div class="edit">
             <form class="shadow curvy" action="/profile/edit" method="POST">
-                <h1>Edit Your Account Description</h1>
+                <h1>Edit Your Account</h1>
                 <div class="txt-box">
-                    <input type="text" name="Username" placeholder="{{profile.username}}" readonly>
+                    <input type="text" name="Description" placeholder="{{profile.description}}">
                 </div>
                 <div class="txt-box">
-                    <input type="textarea" name="Description" placeholder="{{profile.description}}">
+                    <input type="text" name="Password" placeholder="Enter Password">
                 </div>
         
                 <input type="submit"  value="Update">
             </form>
             <a href="/profile/delete" onclick="return confirm('Are you sure to delete your profile?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+        </div>
+    </div> --}}
+
+    <div class="below-header">
+        <div class="upload-box shadow curvy">
+
+            <h2 class="header"><i class="fa fa-pencil-square-o " aria-hidden="true"></i> Edit Account</h2>
+
+            <form action="/profile/edit" method="POST">
+
+                <h3>Username</h3>
+                <h2>{{profile.username}}</h2>
+
+                <h3>Description</h3>
+                <input type="text" id="desc" name="Description" placeholder="Change Description">
+
+                <h3>Password</h3>
+                <input type="text" id="password" name="Password" placeholder="Change Password">
+
+                <input type="submit" value="Update">
+            </form>
+
+            <h2>{{message}}</h2>
         </div>
     </div>
 <!-- End of My Update Form -->

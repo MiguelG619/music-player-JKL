@@ -1,4 +1,10 @@
 /*Music Player*/
+.box {
+	position: relative;
+	height: 100%;
+	top: 64px;
+	left: 160px;
+}
 
 input[type="range"] {
 	-webkit-appearance: none;
