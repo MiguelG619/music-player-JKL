@@ -4,7 +4,7 @@ const Track = require("../models/TrackModel.js");
 
 const uploadTrackController = {
   getUpload: function (req, res) {
-    res.render("trackUploadEdit");
+    res.render("trackUploadEdit", {isUpload: true});
   },
 
   postTrack: function (req, res) {

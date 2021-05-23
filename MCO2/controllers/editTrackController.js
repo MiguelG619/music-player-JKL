@@ -6,7 +6,7 @@ const Track = require("../models/TrackModel.js");
 
 const editTracksController = {
   getEditTrack: function (req, res) {
-    res.render("trackUploadEdit");
+    res.render("trackUploadEdit", {isUpload: false});
   },
 
   updateTrack: function (req, res) {
@@ -51,7 +51,7 @@ const editTracksController = {
 
   deleteTrack: function (req, res) {
     const id = req.params.id;
-    Track.findByIDAndDelete(id)
+    Track.findByIdAndRemove(id)
       .then((result) => {
         Playlist.updateMany(
           {},

@@ -60,12 +60,14 @@
                     </div>
 
                     <div class="track-functions">
-                        <button onclick="like()" class="left-track-functions" id="playlist"><i class="fas fa-list-music" aria-hidden="true"></i>
+                        <button class="left-track-functions" id="playlist">Like
                         </button>
-                        <button onclick="justplay()" class="left-track-functions" id="like"><i class="fas fa-thumbs-up" aria-hidden="true"></i>
-                        </button>
+                        <a href="/editTrack/{{track._id}}" class="left-track-functions" id="like">Edit
+                        </a>
+                        <a href="/editTrack/delete/{{track._id}}"  class="left-track-functions" id="playlist" onclick="return confirm('Are you sure to delete this track?');">Delete</a>
+                        </a>
                         <button onclick="add_playlist()" id="play">
-                            <i class="fas fa-play" aria-hidden="true"></i>
+                            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                         </button>
                     </div>
                    </div>
@@ -74,8 +76,8 @@
 
             <!-- Track Info -->
             <div class="col-3 my-col">
-            <h2 class="track-title bg-dark font-lightgrey">{{track.title}}</h2>
-            <h3 class="track-artist bg-dark font-lightgrey"><q>{{track.artist}}</q></h3>
+            <h2 class="track-title bg-dark ">{{track.title}}</h2>
+            <h3 class="track-artist bg-dark "><q>{{track.artist}}</q></h3>
             <h5 class="track-description">
                 {{track.description}}
             </h5>
