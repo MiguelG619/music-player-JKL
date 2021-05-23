@@ -6,47 +6,26 @@ const Track = require("../models/TrackModel.js");
 
 const editTracksController = {
   getEditTrack: function (req, res) {
-    res.render("trackUploadEdit", {isUpload: false});
+    Track.findById(req.params.id)
+    .then(result => {
+      res.render("trackEdit", {track: result});
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    
   },
 
   updateTrack: function (req, res) {
-    const id = req.params.id;
-
-    Track.findOne({ title: req.body.title })
-      .exec()
-      .then((track) => {
-        if (track) {
-          res.status(409).json({
-            message: "Track already exists. Please enter a new one",
-          });
-        } else {
-          Track.findByIdAndUpdate(
-            { id },
-            {
-              title: req.body.title,
-              description: req.body.description,
-              url: req.body.url,
-            },
-            { new: true }
-          )
-            .then((result) => {
-              console.log(result);
-              res.redirect("/searchTracks");
-            })
-            .catch((err) => {
-              console.log(err);
-              res.status(500).json({
-                error: err,
-              });
-            });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({
-          error: err,
+    const description = req.body.Description;
+  
+        Track.findOneAndUpdate({title: req.body.title}, {title: req.body.Title, description: description, url: req.body.Url}, {new: true}, (err, result) => {
+          if (err)
+            console.log(err);
+          else {
+            res.redirect('/searchTracks');
+          }
         });
-      });
   },
 
   deleteTrack: function (req, res) {

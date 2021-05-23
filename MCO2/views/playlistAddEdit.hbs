@@ -27,19 +27,19 @@
     <div class="below-header">
         <div class="upload-box shadow curvy">
 
-                <h2 class="header"><i class="fa fa-upload" aria-hidden="true"></i> Upload Track</h2>
-                 <form action="/upload" method="POST">
-            
-           
 
-                <h3>Title</h3>
-                <input type="text" id="title" name="Title">
+                {{#if isAdd}}
+                <h2 class="header"><i class="fa fa-upload" aria-hidden="true"></i> Add Playlist</h2>
 
-                <h3>Description</h3>
-                <input type="text" id="desc" name="Description">
+            {{else}}
+                <h2 class="header"><i class="fa fa-upload" aria-hidden="true"></i> Edit Playlist</h2>
+            {{/if}}
 
-                <h3>URL</h3>
-                <input type="text" id="url" name="URL">
+          
+            <form action="/playlistView/edit" method="POST">
+
+                <h3>Playlist Name</h3>
+                <input type="text" id="playlistName" name="playlistName">
 
                 <input type="submit" value="Upload">
             </form>

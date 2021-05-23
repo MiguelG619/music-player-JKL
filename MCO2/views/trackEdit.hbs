@@ -27,11 +27,11 @@
     <div class="below-header">
         <div class="upload-box shadow curvy">
 
-                <h2 class="header"><i class="fa fa-upload" aria-hidden="true"></i> Upload Track</h2>
-                 <form action="/upload" method="POST">
+                <h2 class="header"><i class="fa fa-upload" aria-hidden="true"></i> Edit Track</h2>
+                 <form action="/editTrack" method="POST">
             
            
-
+                <input type="hidden" name="id"  value={{track._id}}>
                 <h3>Title</h3>
                 <input type="text" id="title" name="Title">
 

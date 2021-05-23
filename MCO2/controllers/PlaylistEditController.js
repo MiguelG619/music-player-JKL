@@ -5,7 +5,42 @@ const Playlist = require("../models/PlaylistModel.js");
 
 const playlistEditController = {
   getPlaylistEdit: function (req, res) {
-    res.render("profPlaylistEdit");
+    res.render("playlistAddEdit", {isAdd: false});
+  },
+
+  getPlaylistAdd: function (req, res) {
+    res.render("playlistAddEdit", {isAdd: true});
+  },
+
+  postPlaylist: function (req, res) {
+    const newTracksArray = [];
+    const playlistName = req.body.playlistName;
+    User.findOne({ playlistName: playlistName })
+      .exec()
+      .then((playlist) => {
+        if (playlist) {
+          res.status(409).json({
+            message: "Playlist already exists",
+          });
+        } else {
+          const newPlaylist = new Playlist({
+            username: req.session.user.username,
+            playlistName: req.body.playlistName,
+            tracks: newTracksArray,
+          });
+          newPlaylist
+            .save()
+            .then((result) => {
+              res.redirect("/profInfo");
+            })
+            .catch((err) => {
+              console.log(err);
+              res.status(500).json({
+                error: err,
+              });
+            });
+        }
+      });
   },
 
   updatePlaylist: function (req, res) {
@@ -30,7 +65,7 @@ const playlistEditController = {
   deletePlaylist: function (req, res) {
     const id = req.params.id;
 
-    Playlist.findByIdAndDelete(id)
+    Playlist.findByIdAndRemove(id)
       .then((result) => {
         res.redirect("/playlistView");
       })

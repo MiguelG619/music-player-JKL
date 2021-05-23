@@ -69,7 +69,7 @@ router.post("/upload", uploadTrackController.postTrack);
 // <a href="editTrack/{{this._id}}</a> gawing anchr tag yung title ng track
 router.get("/editTrack/:id", editTrackController.getEditTrack);
 
-router.patch("/editTrack/:id", editTrackController.updateTrack);
+router.post("/editTrack", editTrackController.updateTrack);
 
 // <a href="/editTrack/delete/{{this._id}}" onclick="return confirm("Are you sure to delete this track?");><i logo></i></a>
 // gawing anchr tag yung delete button
@@ -83,9 +83,11 @@ router.get("/profInfo/playlist/tracks/:id", playlistViewController.getOnePlaylis
 
 router.post("/playlistView/create", playlistViewController.postPlaylist);
 
-router.get("/playlistView/edit", playlistEditController.getPlaylistEdit);
+router.get("/playlistProfileEdit/:id", playlistEditController.getPlaylistEdit);
 
-router.patch("/playlistView/edit", playlistEditController.updatePlaylist);
+router.get("/playlistView/edit", playlistEditController.getPlaylistAdd);
+
+router.post("/playlistView/edit", playlistEditController.postPlaylist);
 // <a href="/playlistView/delete/{{this._id}}" onclick="return confirm("Are you sure to delete this track?");><i logo></i></a>
 // gawing anchr tag yung delete button
 router.get("/playlistView/delete/:id", playlistEditController.deletePlaylist);
