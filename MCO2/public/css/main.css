@@ -1,15 +1,15 @@
 :root {
   --dark: hsl(197, 7%, 21%);
-  --light: hsl(0, 8%, 88%);
+  --light: hsl(0, 100%, 99%);
   --primary: hsl(13, 88%, 55%);
   --secondary: hsl(203, 61%, 45%);
   --accent: hsl(289, 94%, 60%);
 
-  --dark: black;
+  /* --dark: black;
   --light: white;
   --primary: black;
   --secondary: black;
-  --accent: hsl(13, 88%, 55%);
+  --accent: hsl(13, 88%, 55%); */
 
   --ff-primary: "Roboto", sans-serif;
   --ff-accent: "Questrial", Arial, Helvetica, sans-serif;
@@ -30,7 +30,7 @@ body {
   font-size: 1.3125rem;
   line-height: 1.6;
 
-  background-color: white;
+  background-color: var(--light);
 }
 
 body,
@@ -42,7 +42,7 @@ p {
 }
 
 h1 {
-  color: var(--primary);
+  color: var(--dark);
   font-size: 3rem;
   font-family: var(--ff-accent);
   font-weight: 900;
@@ -50,7 +50,7 @@ h1 {
 }
 
 h2 {
-  color: var(--primary);
+  color: var(--dark);
   font-size: 2rem;
   font-family: var(--ff-accent);
   font-weight: 900;
@@ -58,7 +58,7 @@ h2 {
 }
 
 h3 {
-  color: var(--primary);
+  color: var(--dark);
   font-size: 1rem;
   font-family: var(--ff-accent);
   font-weight: 900;
@@ -66,7 +66,7 @@ h3 {
 }
 
 p {
-  color: var(--primary);
+  color: var(--dark);
   font-size: 0.75rem;
   font-family: var(--ff-primary);
   font-weight: 300;

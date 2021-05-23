@@ -11,7 +11,7 @@ const musicPlayerController = {
     Track.findById(id)
     .then(result => {
       console.log("accessed");
-      res.render('musicPlayer', {track: result, });
+      res.render('musicPlayer', {track: result});
     })
     .catch(err => {
       res.status(404).json({
