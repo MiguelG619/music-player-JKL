@@ -2,7 +2,7 @@ const dotenv = require(`dotenv`);
 const express = require("express");
 const hbs = require("hbs");
 const session = require("express-session");
-const routes = require("./routes/routes");
+const routes = require("./routes/routes.js");
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
 const path = require(`path`);
@@ -13,7 +13,7 @@ const db = require("./models/db.js");
 const app = express();
 dotenv.config();
 port = process.env.PORT;
-hostname = process.env.HOSTNAME;
+// hostname = process.env.HOSTNAME;
 
 // set `hbs` as view engine
 app.set("view engine", "hbs");
@@ -38,7 +38,7 @@ app.use(
 	})
 );
 
-app.use(routes);
+app.use("/",routes);
 
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware
@@ -52,7 +52,7 @@ app.use(function (req, res) {
 db.connect();
 
 // binds the server to a specific port
-app.listen(port, hostname, () => {
+app.listen(port, () => {
 	console.log(`Server running at: `);
-	console.log("https://" + hostname + ":" + port);
+	console.log("https://" + ":" + port);
 });

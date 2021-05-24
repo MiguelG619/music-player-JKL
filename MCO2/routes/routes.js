@@ -3,7 +3,7 @@ const signUpController = require("../controllers/signUpController");
 const logInController = require("../controllers/logInController");
 
 const searchTracksController = require("../controllers/searchTracksController");
-const searchArtistsController = require("../controllers/searchArtistsController");
+const searchArtistsController = require("../controllers/SearchArtistsController");
 
 const profileInfoController = require("../controllers/profileInfoController");
 const profileEditController = require("../controllers/profileEditController");
@@ -13,37 +13,37 @@ const uploadTrackController = require("../controllers/uploadTrackController");
 const editTrackController = require("../controllers/editTrackController");
 
 const playlistViewController = require("../controllers/playlistViewController");
-const playlistEditController = require("../controllers/playlistEditController");
+const playlistEditController = require("../controllers/PlaylistEditController");
 
-const validation= require('../helpers/validation.js');
+// const validation= require('../helpers/validation.js');
 
-const router = express.Router();
+const app = express();
 
 // LogIn SignUp LogOut
-router.get("/getCheckUsername", signUpController.getCheckUsername);
+app.get("/getCheckUsername", signUpController.getCheckUsername);
 
-router.get("/signUp", signUpController.getSignUp);
-// router.post("/signUp", validation.signUpValidation(), signUpController.postSignUp);
+app.get("/signUp", signUpController.getSignUp);
+// app.post("/signUp", validation.signUpValidation(), signUpController.postSignUp);
 
-router.post("/signUp", signUpController.postSignUp);
+app.post("/signUp", signUpController.postSignUp);
 
-router.get("/", logInController.getLogIn);
+app.get("/", logInController.getLogIn);
 
-router.post("/logIn", logInController.postLogIn);
+app.post("/logIn", logInController.postLogIn);
 
-router.get("/logOut", logInController.getLogOut);
+app.get("/logOut", logInController.getLogOut);
 
 // searchTracks and searchArtists
-router.get("/searchTracks", searchTracksController.getAllTracks);
+app.get("/searchTracks", searchTracksController.getAllTracks);
 
-router.get("/searchOneTrack", searchTracksController.getOneTrack);
+app.get("/searchOneTrack", searchTracksController.getOneTrack);
 
-router.get("/searchArtists", searchArtistsController.getAllArtists);
+app.get("/searchArtists", searchArtistsController.getAllArtists);
 
-router.get("/searchOneArtists", searchArtistsController.getOneArtist);
+app.get("/searchOneArtists", searchArtistsController.getOneArtist);
 
 // profile
-router.get("/profInfo", profileInfoController.getPersonalInfo);
+app.get("/profInfo", profileInfoController.getPersonalInfo);
 /*To get the id of a different user in hbs
  	{{#each profile}}  
   		<a href=/profileInfo/{{this._id}}>
@@ -51,45 +51,45 @@ router.get("/profInfo", profileInfoController.getPersonalInfo);
     {{/each}}
 	
 */
-router.get("/profInfo/:username", profileInfoController.getOtherProfile);
+app.get("/profInfo/:username", profileInfoController.getOtherProfile);
 
-router.get("/profile/edit", profileEditController.getProfileEdit);
+app.get("/profile/edit", profileEditController.getProfileEdit);
 
-router.post("/profile/edit", profileEditController.updateProfile);
+app.post("/profile/edit", profileEditController.updateProfile);
 
-router.get("/profile/delete", profileEditController.deleteUser);
+app.get("/profile/delete", profileEditController.deleteUser);
 
 //muscisPlayer/Tracks
-// router.get("/musicPlayer", musicPlayerController.getTrack);
-router.get("/musicPlayer/:id", musicPlayerController.getTrack);
+// app.get("/musicPlayer", musicPlayerController.getTrack);
+app.get("/musicPlayer/:id", musicPlayerController.getTrack);
 
-router.get("/upload", uploadTrackController.getUpload);
+app.get("/upload", uploadTrackController.getUpload);
 
-router.post("/upload", uploadTrackController.postTrack);
+app.post("/upload", uploadTrackController.postTrack);
 // <a href="editTrack/{{this._id}}</a> gawing anchr tag yung title ng track
-router.get("/editTrack/:id", editTrackController.getEditTrack);
+app.get("/editTrack/:id", editTrackController.getEditTrack);
 
-router.post("/editTrack", editTrackController.updateTrack);
+app.post("/editTrack", editTrackController.updateTrack);
 
 
-router.get("/editTrack/delete/:id", editTrackController.deleteTrack);
+app.get("/editTrack/delete/:id", editTrackController.deleteTrack);
 
 // playlist
-router.get("/playlistView", playlistViewController.getAllPlaylists);
+app.get("/playlistView", playlistViewController.getAllPlaylists);
 
-router.get("/profInfo/playlist/tracks/:id", playlistViewController.getOnePlaylist);
+app.get("/profInfo/playlist/tracks/:id", playlistViewController.getOnePlaylist);
 
-router.post("/playlistView/create", playlistViewController.postPlaylist);
+app.post("/playlistView/create", playlistViewController.postPlaylist);
 
-router.get("/playlist/edit/:id", playlistEditController.getPlaylistEdit);
+app.get("/playlist/edit/:id", playlistEditController.getPlaylistEdit);
 
-router.post("/playlist/edit", playlistEditController.updatePlaylist);
+app.post("/playlist/edit", playlistEditController.updatePlaylist);
 
-router.get("/playlistView/add", playlistEditController.getPlaylistAdd);
+app.get("/playlistView/add", playlistEditController.getPlaylistAdd);
 
-router.post("/playlistView/edit", playlistEditController.postPlaylist);
+app.post("/playlistView/edit", playlistEditController.postPlaylist);
 // <a href="/playlistView/delete/{{this._id}}" onclick="return confirm("Are you sure to delete this track?");><i logo></i></a>
 // gawing anchr tag yung delete button
-router.get("/playlistView/delete/:id", playlistEditController.deletePlaylist);
+app.get("/playlistView/delete/:id", playlistEditController.deletePlaylist);
 
-module.exports = router;
+module.exports = app;

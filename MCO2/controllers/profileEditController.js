@@ -1,5 +1,4 @@
 const User = require("../models/UserModel.js");
-const bcrypt = require("bcrypt");
 const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
@@ -24,51 +23,29 @@ const profileEditController = {
     
   },
 
-  // deleteUser: function (req, res) {
-  //   var user = req.session.user;
-  //   // console.log(id);
-  //   User.findByIdAndRemove(user.id, (err, doc) => {
-  //       if (!err) {
-  //         res.render('index');
-  //       }
-  //       else { console.log(err); }
-  //   });
-  // },
-
-
 
   deleteUser: function (req, res) {
-    var user = req.session.user;
-    // console.log(user._id)
-    User.findByIdAndRemove(user._id)
-      .then((result) => {
-        Track.deleteMany({username:user.username})
-          .then((result) => {
-            Playlist.updateMany(
-              {},
-              { $pull: { songs: { url: req.body.url } } },
-              { new: true }
-            )
-              .catch((err) => {
-                console.log(err);
-                res.status(500).json({
-                  error: err,
-                });
-              });
-          })
-          .catch((err) => {
-            console.log(err);
-            res.status(500).json({
-              error: err,
-            });
-          });
-        res.render("index");
-      })
-      .catch((err) => {
-        res.status(500).json({
-          message: "error",
+    const username = req.session.user.username;
+    
+    User.findOneAndDelete({username: username})
+    .then(user => {
+      Track.deleteMany({artist: username})
+      .then(track => {
+        Playlist.deleteMany({username: username})
+        .then(playlist =>{
+          res.render('index');
+        })
+        .catch(err => {
+          console.log(err);
         })
       })
+      .catch(err => {
+        console.log(err);
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    })
     }
 };
 

@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 const database = {
   connect: function () {
     const dbURI =
-      "mongodb+srv://Miguel:vnWk192ZTTYilRx5@cluster0.hwmuc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+      "mongodb+srv://admin:admin@jkl.8e9pu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     mongoose
       .connect(dbURI, {
         useNewUrlParser: true,

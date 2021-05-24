@@ -34,7 +34,9 @@ const editTracksController = {
   },
 
   deleteTrack: function (req, res) {
+
     const id = req.params.id;
+    
     Track.findByIdAndRemove(id)
       .then((result) => {
         Playlist.updateMany(
@@ -42,8 +44,7 @@ const editTracksController = {
           { $pull: { songs: { url: req.body.url } } },
           { new: true }
         )
-          .then((playlist) => {
-            
+          .then((playlist) => {            
             res.redirect("/profInfo");
           })
           .catch((err) => {
