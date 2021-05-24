@@ -24,16 +24,52 @@ const profileEditController = {
     
   },
 
+  // deleteUser: function (req, res) {
+  //   var user = req.session.user;
+  //   // console.log(id);
+  //   User.findByIdAndRemove(user.id, (err, doc) => {
+  //       if (!err) {
+  //         res.render('index');
+  //       }
+  //       else { console.log(err); }
+  //   });
+  // },
+
+
+
   deleteUser: function (req, res) {
-    const id = req.session.user._id;
-    console.log(id);
-    User.findByIdAndRemove(id,  (err, doc) => {
-        if (!err) {
-            res.render('index');
-        }
-        else { console.log(err); }
-    });
-  },
+    var user = req.session.user;
+    // console.log(user._id)
+    User.findByIdAndRemove(user._id)
+      .then((result) => {
+        Track.deleteMany({username:user.username})
+          .then((result) => {
+            Playlist.updateMany(
+              {},
+              { $pull: { songs: { url: req.body.url } } },
+              { new: true }
+            )
+              .catch((err) => {
+                console.log(err);
+                res.status(500).json({
+                  error: err,
+                });
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json({
+              error: err,
+            });
+          });
+        res.render("index");
+      })
+      .catch((err) => {
+        res.status(500).json({
+          message: "error",
+        })
+      })
+    }
 };
 
 module.exports = profileEditController;

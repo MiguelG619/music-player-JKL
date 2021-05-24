@@ -24,7 +24,7 @@ const loginController = {
               req.session.user = user;
               Track.find()
                 .then((result) => {
-                  console.log(result);
+                  // console.log(result);
                   res.render("searchTracks", { track: result });
                 })
                 .catch((err) => {

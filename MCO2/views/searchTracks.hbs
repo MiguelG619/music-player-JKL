@@ -28,14 +28,16 @@
         <div class="content-box">
             {{#each track}}
             <div class="card shadow curvy">
-                <img class="cover" src="images/blackpink-cover.jpg">
+                <img class="cover" src="images/track.png">
                 <div class="info">
                     <div class="text">
                         <h3>{{artist}}</h3>
                         <h2>{{title}}</h2>
                         <p>{{description}}</p>
                     </div>
-                    <a href="/musicPlayer/{{_id}}" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                    <div class="ctrl">
+                        <a href="/musicPlayer/{{_id}}" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Play</a>
+                    </div>
                 </div>
             </div>
             {{/each}}

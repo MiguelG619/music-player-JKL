@@ -36,29 +36,37 @@
     <!-- Profile Info -->
         <div class="content-box">
             <div class="card shadow curvy">
-                <img class="cover" src="images/blackpink-cover.jpg">
+                <img class="cover" src="images/default.jpg">
                 <div class="info">
                     <div class="text">
                         <h3>{{profile.realName}}</h3>
                         <h2>{{profile.username}}</h2>
                         <p>{{profile.description}}</p>
-                        
                     </div>
-                    <a href="/profile/edit" class="play"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                    <a href="/playlistView/add">Add Playlist</a>
+                    <div class="ctrl">
+                        <a href="/playlistView/add"><i class="fa fa-plus" aria-hidden="true"></i> Add Playlist</a>
+                        <a href="/profile/edit" class="play"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Edit</a>
+                        {{!-- Delete User --}}
+                        <a href="/profile/delete" onclick="return confirm('Are you sure to delete your account?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i> Delete</a>
+                    </div>
                 </div>
             </div>
-
-            <!-- {{!--  --}} -->
-            {{#each profile.track}}
+            {{#each tracks}}
                 <div class="card shadow curvy">
-                    <img class="cover" src="images/blackpink-cover.jpg">
+                    <img class="cover" src="images/track.png">
                     <div class="info">
                         <div class="text">
                             <h3>{{this.artist}}</h3>
                             <h2>{{this.title}}</h2>
+                            <p>{{this.description}}</p>
                         </div>
-                        <a href="/musicPlayer/{{this._id}}" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                        <div class="ctrl">
+                            <a href="/musicPlayer/{{this._id}}" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Play</a>
+                            {{!-- Edit Track Name --}}
+                            <a href="/editTrack/{{this._id}}" class="play"><i class="fa fa-ellipsis-h" aria-hidden="true"></i> Edit</a>
+                            {{!-- Delete Track --}}
+                            <a href="/editTrack/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this track?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i> Delete</a>
+                        </div>
                     </div>
                 </div>
              {{/each}}

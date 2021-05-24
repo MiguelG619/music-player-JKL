@@ -7,7 +7,7 @@ const playlistEditController = {
    getPlaylistEdit: function (req, res) {
     Playlist.findById(req.params.id)
     .then(result => {
-      console.log(result);
+      // console.log(result);
       res.render("playlistEdit", {playlist: result});
     })
     .catch(err => {
@@ -52,7 +52,7 @@ const playlistEditController = {
 
   updatePlaylist: function (req, res) {
     const oldName = req.body.oldPlaylistName;
-    console.log("oldName");
+    // console.log("oldName");
     Playlist.findOneAndUpdate({playlistName: oldName}, {playlistName: req.body.playlistName}, {new: true}, (err, result) => {
           if (err)
             console.log(err);

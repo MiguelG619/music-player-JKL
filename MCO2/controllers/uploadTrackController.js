@@ -8,21 +8,24 @@ const uploadTrackController = {
   },
 
   postTrack: function (req, res) {
-    const username = req.session.user.username;
+    var user = req.session.user;
 
     Track.findOne({ title: req.body.Title })
       .exec()
       .then((track) => {
         if (track) {
           res.render("trackUploadEdit", { message: "Track already exists." });
-        } else {
+        } else {  
           const track = new Track({
             title: req.body.Title,
-            artist: username,
+            artist: user.username,
             image: "a",
             description: req.body.Description,
             url: req.body.URL,
           });
+
+          user.tracks.push(track);
+          // console.log(user.tracks);
           track
             .save()
             .then((result) => {

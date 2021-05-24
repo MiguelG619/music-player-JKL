@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track</title>
+    <title>Music Player</title>
 
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/sidebar.css">
-    <link rel="stylesheet" href="/css/main-style.css">
-    <link rel="stylesheet" href="/css/music-player-style.css">
+    <link rel="stylesheet" href="/css/musicplayer.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     
@@ -28,7 +27,35 @@
     <!-- End of Header -->
     <!-- Track Content -->
 
-    <div class="container-fluid gainsboro">
+    <div class="below-header">
+        <div class="player shadow curvy">
+            <img src="/images/default.jpg" alt="">
+            <div class="track">
+                <h1>{{track.title}}</h1>
+                <h2>{{track.artist}} <i class="fa fa-plus" aria-hidden="true"></i></h2>
+            </div>
+            
+            <div class="btn">
+                <i class="fa fa-volume-up" aria-hidden="true"></i>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+            
+
+            <div class="btn controls">
+                <i class="fa fa-step-backward" aria-hidden="true"></i>
+                <i class="fa fa-play" aria-hidden="true"></i>
+                <i class="fa fa-step-forward" aria-hidden="true"></i>
+            </div>
+
+            <p>{{track.description}}</p>
+        </div>
+
+       
+    </div>
+
+
+
+    {{!-- <div class="container-fluid gainsboro">
         <div class="row vh-100 ">
 
             <div class="col-9 d-flex flex-column align-items-center player">
@@ -72,20 +99,9 @@
             <div class="col-3 my-col">
             <h2 class="track-title bg-dark ">{{track.title}}</h2>
             <h3 class="track-artist bg-dark "><q>{{track.artist}}</q></h3>
-            <h5 class="track-description">
-                {{track.description}}
-            </h5>
-            <h4 class="num-likes"><i class="fal fa-thumbs-up"></i> 123</h4>
-            <h4 class="num-listens"><i class="far fa-ear"></i> 999</h4>
-            <div class="description-tags">
-                <span><i class="fal fa-tags"></i>:</span>
-                <span class="tags">kpop</span>
-            </div>
-            
-
-
+            <h3 class="track-description"> {{track.description}} </h3>
         </div>
-    </div>
+    </div> --}}
 
 </body>
 

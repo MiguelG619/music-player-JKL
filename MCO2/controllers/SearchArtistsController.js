@@ -15,12 +15,12 @@ const searchArtistsController = {
   },
 
   getOneArtist: function (req, res) {
-    console.log(req.query.search);
+    // console.log(req.query.search);
     User.findOne(
       { username: { $regex: req.query.search, $options: "i" } },
       (err, result) => {
         if (result) {
-          console.log(result);
+          // console.log(result);
           res.render("searchArtist", { artist: result });
         } else {
           res.status(404).json({

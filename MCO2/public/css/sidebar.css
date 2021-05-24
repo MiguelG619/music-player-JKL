@@ -43,16 +43,24 @@ nav a:hover {
 
 .contact-box {
   font: inherit;
+  color: var(--light);
   font-size: 1rem;
 }
 
 .contact-box h3 {
   margin: 0 0 0 16px;
+  color: var(--light);
 }
 
 .contact-box a {
   margin: 0 0 32px 24px;
   padding: 0 8px 0 0;
+  color: var(--light);
   text-decoration: none;
   cursor: pointer;
+}
+
+.contact-box a:hover {
+  transition: 300ms;
+  color: var(--accent);
 }

@@ -7,6 +7,7 @@ const searchTracksController = {
     Track.find()
       .sort({ createdAt: -1 })
       .then((result) => {
+        // console.log();
         res.render("searchTracks", { track: result });
       })
       .catch((err) => {
@@ -17,7 +18,7 @@ const searchTracksController = {
   },
 
   getOneTrack: function (req, res) {
-    console.log(req.query.search);
+    // console.log(req.query.search);
     Track.findOne(
       { title: { $regex: req.query.search, $options: "i" } },
       (err, result) => {

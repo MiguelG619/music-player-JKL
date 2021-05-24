@@ -6,9 +6,17 @@ const profileInfoController = {
   getPersonalInfo: function (req, res) {
     const username = req.session.user.username;
     User.findOne({ username: username })
-    .then(result => {
-      console.log(result);
-      res.render('profInfo', {profile: result});
+    .then(userresult => {
+      // console.log(result);
+      Track.find({artist: username})
+      .then((result) => {
+        res.render('profInfo', {profile: userresult, tracks: result});
+      })
+      .catch((err) => {
+        res.status(404).json({
+          message: "Error",
+        });
+      });
     })
     .catch(err => {
       res.status(404).json({
@@ -21,9 +29,16 @@ const profileInfoController = {
   getOtherProfile: function (req, res) {
     const username = req.params.username;
     User.findOne({username: username})
-    .then(result => {
-      console.log("accessed");
-      res.render('otherProfile', {profile: result, });
+    .then(userresult => {
+      Track.find({artist: username})
+      .then((result) => {
+        res.render('otherProfile', {profile: userresult, tracks: result});
+      })
+      .catch((err) => {
+        res.status(404).json({
+          message: "Error",
+        });
+      });
     })
     .catch(err => {
       res.status(404).json({

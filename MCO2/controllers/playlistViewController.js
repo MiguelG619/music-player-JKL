@@ -7,7 +7,7 @@ const playlistViewController = {
     Playlist.find({ username: req.session.user.username })
       .sort({ createdAt: -1 })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
 
         res.render("profPlaylist", { playlist: result });
       })
@@ -21,7 +21,7 @@ const playlistViewController = {
   getOnePlaylist: function (req, res) {
     Playlist.findOne({ _id: req.params.id })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         // tracks must be in hbs (tracks.title, tracks.image, etc.)
         res.render("profPlaylist", { playlist: result });
       })
@@ -72,7 +72,7 @@ const playlistViewController = {
         // saang page ilalagay yung tracks na nasa playlist?
         // edi dapat may if sa hbr kung playlist o tracks
         res.render("", { track: result });
-        console.log(result);
+        // console.log(result);
       })
       .catch((err) => {
         res.status(404).json({

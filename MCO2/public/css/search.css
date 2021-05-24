@@ -61,3 +61,21 @@
   transition: 300ms;
   color: var(--accent);
 }
+
+.ctrl {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 0 8px 0 0;
+}
+
+.ctrl a {
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.ctrl a:hover {
+  transition: 300ms;
+  color: var(--accent);
+}

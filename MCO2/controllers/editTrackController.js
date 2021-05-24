@@ -8,7 +8,7 @@ const editTracksController = {
   getEditTrack: function (req, res) {
     Track.findById(req.params.id)
     .then(result => {
-      console.log(result);
+      // console.log(result);
       res.render("trackEdit", {track: result});
     })
     .catch(err => {
@@ -27,8 +27,8 @@ const editTracksController = {
           if (err)
             console.log(err);
           else {
-            console.log("SDASDSD");
-            res.redirect('/searchTracks');
+            // console.log("SDASDSD");
+            res.redirect('/profInfo');
           }
         });
   },
@@ -43,7 +43,8 @@ const editTracksController = {
           { new: true }
         )
           .then((playlist) => {
-            res.redirect("/searchTracks");
+            
+            res.redirect("/profInfo");
           })
           .catch((err) => {
             console.log(err);

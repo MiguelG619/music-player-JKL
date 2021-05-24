@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Profile Page</title>
 
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/header.css">
@@ -14,15 +14,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 </head>
 <body>
     {{> header}}
     <div class="below-header">
-    {{> sidebarProfile}}
-    
+    {{> sidebarSearch}}
 <!--  
     username
     password
@@ -36,7 +34,7 @@
     <!-- Profile Info -->
         <div class="content-box">
             <div class="card shadow curvy">
-                <img class="cover" src="images/blackpink-cover.jpg">
+                <img class="cover" src="/images/default.jpg" alt="default">
                 <div class="info">
                     <div class="text">
                         <h3>{{profile.realName}}</h3>
@@ -46,17 +44,20 @@
                 </div>
             </div>
 
-            <!-- {{!--  --}} -->
-            <div class="card shadow curvy">
-                <img class="cover" src="images/blackpink-cover.jpg">
-                <div class="info">
-                    <div class="text">
-                        <h3>Artist Name</h3>
-                        <h2>Track Title</h2>
+            {{#each tracks}}
+                <div class="card shadow curvy">
+                    <img class="cover" src="/images/track.png">
+                    <div class="info">
+                        <div class="text">
+                            <h3>{{this.artist}}</h3>
+                            <h2>{{this.title}}</h2>
+                        </div>
+                        <div class="ctrl">
+                            <a href="/musicPlayer/{{this._id}}" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i> Play</a>
+                        </div>
                     </div>
-                    <a href="musicPlayer.html" class="play"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
                 </div>
-            </div>
+             {{/each}}
         </div>
     <!-- End of Profile Info -->
     </div> 
