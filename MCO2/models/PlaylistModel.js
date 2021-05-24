@@ -10,7 +10,6 @@ const PlaylistSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // array dapat
     tracks: [
       {
         type: Object,

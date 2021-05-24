@@ -71,8 +71,6 @@ router.get("/editTrack/:id", editTrackController.getEditTrack);
 
 router.post("/editTrack", editTrackController.updateTrack);
 
-// <a href="/editTrack/delete/{{this._id}}" onclick="return confirm("Are you sure to delete this track?");><i logo></i></a>
-// gawing anchr tag yung delete button
 
 router.get("/editTrack/delete/:id", editTrackController.deleteTrack);
 
@@ -83,9 +81,11 @@ router.get("/profInfo/playlist/tracks/:id", playlistViewController.getOnePlaylis
 
 router.post("/playlistView/create", playlistViewController.postPlaylist);
 
-router.get("/playlistProfileEdit/:id", playlistEditController.getPlaylistEdit);
+router.get("/playlist/edit/:id", playlistEditController.getPlaylistEdit);
 
-router.get("/playlistView/edit", playlistEditController.getPlaylistAdd);
+router.post("/playlist/edit", playlistEditController.updatePlaylist);
+
+router.get("/playlistView/add", playlistEditController.getPlaylistAdd);
 
 router.post("/playlistView/edit", playlistEditController.postPlaylist);
 // <a href="/playlistView/delete/{{this._id}}" onclick="return confirm("Are you sure to delete this track?");><i logo></i></a>

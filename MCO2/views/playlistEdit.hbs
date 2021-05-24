@@ -33,6 +33,7 @@
             <form action="/playlist/edit" method="POST">
 
                 <h3>Playlist Name</h3>
+                <input type="hidden" name="oldPlaylistName" value="{{playlist.playlistName}}">
                 <input type="text" id="playlistName" name="playlistName">
 
                 <input type="submit" value="Upload">

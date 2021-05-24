@@ -8,6 +8,7 @@ const editTracksController = {
   getEditTrack: function (req, res) {
     Track.findById(req.params.id)
     .then(result => {
+      console.log(result);
       res.render("trackEdit", {track: result});
     })
     .catch(err => {
@@ -18,11 +19,15 @@ const editTracksController = {
 
   updateTrack: function (req, res) {
     const description = req.body.Description;
-  
-        Track.findOneAndUpdate({title: req.body.title}, {title: req.body.Title, description: description, url: req.body.Url}, {new: true}, (err, result) => {
+    const title = req.body.Title;
+    const url = req.body.URL;
+    const id = req.body.id;
+
+        Track.findByIdAndUpdate(id, {title: title, description: description, url: url}, {new: true}, (err, result) => {
           if (err)
             console.log(err);
           else {
+            console.log("SDASDSD");
             res.redirect('/searchTracks');
           }
         });

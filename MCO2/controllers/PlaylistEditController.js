@@ -4,12 +4,19 @@ const Track = require("../models/TrackModel.js");
 const Playlist = require("../models/PlaylistModel.js");
 
 const playlistEditController = {
-  getPlaylistEdit: function (req, res) {
-    res.render("playlistAddEdit", {isAdd: false});
+   getPlaylistEdit: function (req, res) {
+    Playlist.findById(req.params.id)
+    .then(result => {
+      console.log(result);
+      res.render("playlistEdit", {playlist: result});
+    })
+    .catch(err => {
+      console.log(err);
+    });
   },
 
   getPlaylistAdd: function (req, res) {
-    res.render("playlistAddEdit", {isAdd: true});
+    res.render("playlistAdd");
   },
 
   postPlaylist: function (req, res) {
@@ -31,7 +38,7 @@ const playlistEditController = {
           newPlaylist
             .save()
             .then((result) => {
-              res.redirect("/profInfo");
+              res.redirect("/playlistView");
             })
             .catch((err) => {
               console.log(err);
@@ -44,22 +51,15 @@ const playlistEditController = {
   },
 
   updatePlaylist: function (req, res) {
-    Playlist.findOneAndUpdate(
-      { username: req.session.user.username },
-      {
-        playlistName: req.body.playlistName,
-        description: req.body.description,
-      },
-      { new: true }
-    )
-      .then((result) => {
-        res.redirect("/playlistView");
-      })
-      .catch((err) => {
-        res.status(500).json({
-          message: "Error",
+    const oldName = req.body.oldPlaylistName;
+    console.log("oldName");
+    Playlist.findOneAndUpdate({playlistName: oldName}, {playlistName: req.body.playlistName}, {new: true}, (err, result) => {
+          if (err)
+            console.log(err);
+          else {
+            res.redirect('/profInfo');
+          }
         });
-      });
   },
 
   deletePlaylist: function (req, res) {
